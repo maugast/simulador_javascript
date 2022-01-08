@@ -1,0 +1,29 @@
+@import '../base/colors';
+
+.container-arco{
+    display: flex;
+    justify-content: center;
+
+    .tabla-arco{
+        color: #fff;
+        font-family: 'Gemunu Libre', sans-serif;
+        font-size: 1.3em;
+        border-top:7px solid rgb(255, 255, 255);
+        border-left:7px solid rgb(255, 255, 255);
+        border-right:7px solid rgb(255, 255, 255);
+        background-color: rgba(255, 255, 255, 0.2);
+        height: 200px;
+        margin: 100px auto;
+        padding:0;
+        display: flex;
+        justify-content: space-around;
+        border-collapse: collapse;
+        tbody{
+            tr, td{
+                border: 1px dotted #fff;
+                padding: 20px;
+            }
+        }
+    }
+}
+

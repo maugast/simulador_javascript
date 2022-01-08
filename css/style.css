@@ -1,4 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gemunu+Libre:wght@200&display=swap");
+header {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+header h1 {
+  border-bottom: 2px solid #ebd517;
+}
+
+.container-arco {
+  display: flex;
+  justify-content: center;
+}
+.container-arco .tabla-arco {
+  color: #fff;
+  font-family: "Gemunu Libre", sans-serif;
+  font-size: 1.3em;
+  border-top: 7px solid white;
+  border-left: 7px solid white;
+  border-right: 7px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 200px;
+  margin: 100px auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  border-collapse: collapse;
+}
+.container-arco .tabla-arco tbody tr, .container-arco .tabla-arco tbody td {
+  border: 1px dotted #fff;
+  padding: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;
