@@ -1,3 +1,5 @@
+@import 'fonts';
+
 *{
     margin: 0;
     padding: 0;
@@ -5,6 +7,12 @@
 }
 
 body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: cadetblue;
+    font-family: 'Bebas Neue', cursive;
+    background-image: url(../images/soccer-sport-stadium-at-night.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header{
+
 }
