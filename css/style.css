@@ -1,17 +1,15 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @import 'fonts';
- *   |         ^^^^^^^
- *   '
- *   scss\style.scss 1:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import 'fonts';\d\a   \2502          ^^^^^^^\a   \2575 \a   scss\\style.scss 1:9  root stylesheet";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: "Bebas Neue", cursive;
+  background-image: url(../images/soccer-sport-stadium-at-night.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=style.css.map */
