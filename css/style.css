@@ -3,11 +3,19 @@
 header {
   padding: 2em;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-content: center;
   color: #fff;
 }
 header h1 {
   border-bottom: 2px solid #ebd517;
+  align-self: center;
+}
+header h3 {
+  align-self: center;
+}
+header p {
+  align-self: center;
 }
 
 .container-arco {
@@ -23,15 +31,19 @@ header h1 {
   border-right: 7px solid white;
   background-color: rgba(255, 255, 255, 0.2);
   height: 200px;
-  margin: 100px auto;
+  margin: 50px auto;
   padding: 0;
   display: flex;
   justify-content: space-around;
   border-collapse: collapse;
 }
-.container-arco .tabla-arco tbody tr, .container-arco .tabla-arco tbody td {
+.container-arco .tabla-arco tbody tr td {
   border: 1px dotted #fff;
-  padding: 20px;
+  padding: 20px 70px;
+}
+.container-arco .tabla-arco tbody tr td:hover {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 * {
@@ -45,6 +57,22 @@ body {
   background-image: url(../images/soccer-sport-stadium-at-night.png);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#shot-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+#shot-container #shot {
+  margin: 0 auto;
+  display: inline-block;
+  font-family: "Gemunu Libre", sans-serif;
+  font-size: 1.2em;
+  padding: 5px 20px;
+  background-color: #ebd517;
+  color: black;
+  border-radius: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -13,16 +13,25 @@
         border-right:7px solid rgb(255, 255, 255);
         background-color: rgba(255, 255, 255, 0.2);
         height: 200px;
-        margin: 100px auto;
+        margin: 50px auto;
         padding:0;
         display: flex;
         justify-content: space-around;
         border-collapse: collapse;
         tbody{
-            tr, td{
-                border: 1px dotted #fff;
-                padding: 20px;
+            tr{
+                td{
+                    border: 1px dotted #fff;
+                    padding: 20px 70px;
+
+                    &:hover{
+                        color: black;
+                        background-color: rgba(255, 255, 255, 0.7);
+                    }
+    
+                }
             }
+            
         }
     }
 }

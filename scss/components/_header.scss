@@ -3,11 +3,19 @@
 header{
     padding: 2em;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
     color:#fff;
 
     h1{
         border-bottom: 2px solid map-get($colors, primario);
+        align-self: center;
+    }
+    h3{
+        align-self: center;
+    }
+    p{
+        align-self: center;
     }
 }
 
