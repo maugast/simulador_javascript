@@ -16,6 +16,9 @@ header h3 {
 }
 header p {
   align-self: center;
+  font-family: "Gemunu Libre", sans-serif;
+  padding-top: 20px;
+  font-size: 1.4em;
 }
 
 .container-arco {
@@ -44,6 +47,11 @@ header p {
 .container-arco .tabla-arco tbody tr td:hover {
   color: black;
   background-color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+.container-arco .tabla-arco tbody tr td a {
+  color: #fff;
+  text-decoration: none;
 }
 
 * {
