@@ -7,7 +7,7 @@ console.log(playerName);
 
 //Lo pinta en la interfaz - DESAFÍO CLASE 03: CREAR UN ALGORITMO UTILIZANDO UN CICLO
 function playerNameSet(name){
-  while(name == "" || name== null){
+  while(name == "" || name == null){
     name = prompt('Por favor ingrese su nombre para continuar');
   }
   document.getElementById("player-name").innerHTML = `Player 1: ${name}`;
