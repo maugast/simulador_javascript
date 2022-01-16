@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gemunu+Libre:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gemunu+Libre:wght@200&display=swap");
 header {
   padding: 2em;
   display: flex;
@@ -54,6 +56,16 @@ header p {
   text-decoration: none;
 }
 
+.select-screen-container {
+  width: 500px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.719);
+  position: fixed;
+}
+.select-screen-container h2 {
+  color: #ebd517;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -81,6 +93,9 @@ body {
   background-color: #ebd517;
   color: black;
   border-radius: 15px;
+}
+#shot-container #shot a {
+  text-decoration: overline;
 }
 
 /*# sourceMappingURL=style.css.map */

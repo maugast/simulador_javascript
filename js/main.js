@@ -17,6 +17,40 @@ playerNameSet(playerName);
 
 
 
+//Elije jugador
+
+
+
+const avatar1 = new Avatar("Lionel Messi","Paris SG","IZQ", 6,9);
+const avatar2 = new Avatar("Cristiano Ronaldo","Manchester Utd","DER", 7,8);
+const avatar3 = new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7);
+const avatar4 = new Avatar("Mohamed Salah","Liverpool","IZQ", 7,6);
+const avatar5 = new Avatar("Kylian Mbappe","Paris SG","DER", 8,7);
+const avatar6 = new Avatar("Ángel Di María","Paris SG","IZQ", 5,8);
+const avatar7 = new Avatar("Karim Benzema","Real Madrid","DER", 7,6);
+const avatar8 = new Avatar("Gareth Bale","Real Madrid","IZQ", 6,8);
+const avatar9 = new Avatar("Neymar","Paris SG","DER", 6,7);
+const avatar10 = new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
+
+
+const listaAvatares = [
+        avatar1,
+        avatar2,
+        avatar3,
+        avatar4,
+        avatar5,
+        avatar6,
+        avatar7,
+        avatar8,
+        avatar9,
+        avatar10
+];
+
+
+for(let jugador of listaAvatares){
+  console.log(jugador);
+}
+
 //Elije la direccion del disparo
 
 let ul = document.getElementById('ul');

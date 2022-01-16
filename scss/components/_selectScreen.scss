@@ -1,0 +1,15 @@
+@import '../base/colors';
+@import '../base/fonts';
+
+
+
+.select-screen-container{
+    width: 500px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.719);
+    position: fixed;
+
+    h2{
+        color: map-get($colors, primario);
+    }
+}

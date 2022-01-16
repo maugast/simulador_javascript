@@ -2,6 +2,7 @@
 @import'components/header';
 @import 'components/arco';
 @import 'base/colors';
+@import 'components/selectScreen';
 
 
 *{
@@ -20,7 +21,7 @@ body{
     display: flex;
     justify-content: center;
     padding: 30px;
-    
+
     #shot{
         margin: 0 auto;
         display: inline-block;
@@ -30,5 +31,9 @@ body{
         background-color: map-get($colors, primario);
         color: black;
         border-radius: 15px;
+
+        a{
+            text-decoration: overline;
+        }
     }
 }
