@@ -3,7 +3,6 @@
 .container-arco{
     display: flex;
     justify-content: center;
-
     .tabla-arco{
         color: #fff;
         font-family: 'Gemunu Libre', sans-serif;
@@ -29,14 +28,8 @@
                         background-color: rgba(255, 255, 255, 0.7);
                         cursor: pointer;
                     }
-                    
-                    a{
-                        color: #fff;
-                        text-decoration: none;
-                    }
                 }
-            }
-            
+            }  
         }
     }
 }

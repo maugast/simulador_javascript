@@ -5,20 +5,13 @@ class Avatar{
         this.perfil = perfil;
         this.potencia = potencia;
         this.precision = precision;
-        this.temperamento = 0;
     }
     nombreYClub(){
         return `${this.nombre} - ${this.club}`;
     }  
-    intimidarArquero(cantidad){
-        this.temperamento += cantidad;
-        this.potencia += cantidad;
-        this.precision -= cantidad;
-    }
-    recibirIndicaciones(cantidad){
-        this.temperamento -= cantidad;
-        this.potencia -= cantidad;
-        this.precision += cantidad;
+    disparoExtraPotente(boost){
+        this.potencia += boost;
+        this.precision -= boost;
     }
 }
 

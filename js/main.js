@@ -19,8 +19,6 @@ playerNameSet(playerName);
 
 //Elije jugador
 
-
-
 const avatar1 = new Avatar("Lionel Messi","Paris SG","IZQ", 6,9);
 const avatar2 = new Avatar("Cristiano Ronaldo","Manchester Utd","DER", 7,8);
 const avatar3 = new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7);
@@ -50,6 +48,48 @@ const listaAvatares = [
 for(let jugador of listaAvatares){
   console.log(jugador);
 }
+
+
+//Botones para filtrar resultados
+
+
+const tablaAvatars = document.querySelector('.tabla-avatars');
+
+//Ver todos
+const allButton = document.getElementById('filter-all');
+
+allButton.addEventListener('click', ()=>{
+  
+  console.log(listaAvatares)
+});
+
+//Filtrar Perfiles Izquierdos
+const filterLeft = document.querySelector('#filter-l');
+
+filterLeft.addEventListener('click', ()=>{
+  let onlyLeft = listaAvatares.filter(avatar => avatar.perfil.includes("IZQ"));
+
+  document.getElementsByClassName('der').style.display ='none';
+    console.log(onlyLeft)
+});
+
+
+
+
+//Filtrar Perfiles Derechos
+const filterRight = document.querySelector('#filter-r');
+
+filterRight.addEventListener('click', ()=>{
+  let onlyRight = listaAvatares.filter(avatar => avatar.perfil.includes("DER"));
+
+  let onlyLeft = document.getElementsByClassName('izq').children;
+
+  console.log(onlyLeft);
+  console.log(onlyRight);
+});
+
+
+
 
 //Elije la direccion del disparo
 
