@@ -21,34 +21,11 @@
         <div class="select-screen-container">
             <div class="select-screen">
                 <h2>Elige a tu jugador</h2>
+                
                 <table class="tabla-avatars">
-                    <tbody>
-                        <!-- Fila 1 -->
-                        <tr>
-                            <td id="messi" class="izq"><span>Lionel Messi</span></td>
-                            <td id="cr" class="der"><span>Cristiano Ronaldo</span></td>
-                        </tr>
-                        <!-- Fila 2 -->
-                        <tr>
-                            <td id="lew" class="der"><span>Robert Lewandowski</span></td>
-                            <td id="salah" class="izq"><span>Mohamed Salah</span></td>
-                        </tr>
-                        <!-- Fila 3 -->
-                        <tr>
-                            <td id="mbappe" class="der"><span>Kylian Mbappe</span></td>
-                            <td id="angel" class="izq"><span>Ángel Di María</span></td>
-                        </tr>
-                        <!-- Fila 4 -->
-                        <tr>
-                            <td id="benze" class="der"><span>Karim Benzema</span></td>
-                            <td id="bale" class="izq"><span>Gareth Bale</span></td>
-                        </tr>
-                         <!-- Fila 5 -->
-                         <tr>
-                            <td id="ney" class="der"><span>Neymar</span></td>
-                            <td id="griez" class="izq"><span>Antoine Griezmann</span></td>
-                        </tr>
-                    </tbody>
+
+                    <!-- Acá se cargan los resultados al filtrar elementos -->
+                    
                 </table>
 
                 <div id="filter-container">
@@ -56,7 +33,7 @@
                     <button id="filter-all" class="filter-btn"><span>Ver Todos<span></button>
                     <button id="filter-l" class="filter-btn"><span>Filtrar Zurdos<span></button>
                 </div>
-                
+
             </div>
         </div>
         <section class="container-arco">
@@ -83,6 +60,12 @@
                 </tbody>
             </table>
         </section>
+
+        <!-- Se muestran los datos del jugador elegido -->
+        <div class="avatar-container">
+            <h3 id="avatar-name">Avatar</h3>
+        </div>
+
         <div id="shot-container">
             <button id="shot"><span>PATEAR<span></button>
         </div>

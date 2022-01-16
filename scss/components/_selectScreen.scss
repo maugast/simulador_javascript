@@ -5,11 +5,11 @@
 
 .select-screen-container{
     width: 60%;
-    height: 520px;
+    height: 600px;
     background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 5%;
+    border-radius: 15px;
     position: absolute;
-    top: -145px;
+    top: -140px;
     left: 20%;
     animation: selectScreenFadeIn 1s ease-out 1s;
     .select-screen{
@@ -27,16 +27,14 @@
             tr{
                 td{
                     padding: 4px 5px;
-
+                    font-family: 'Gemunu Libre', sans-serif;
+                    font-size: 1.5em;
+                    color: #fff;
+                    
                     &:hover{
                         color: black;
                         background-color: rgba(255, 255, 255, 0.7);
                         cursor: pointer;
-                    }
-                    span{
-                        font-family: 'Gemunu Libre', sans-serif;
-                        font-size: 1.5em;
-                        color: #fff;
                     }
                 }
             }  

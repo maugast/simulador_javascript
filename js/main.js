@@ -5,18 +5,6 @@ let playerName = prompt('!Bienvenido!, ingrese su nombre para continuar');
 console.log(playerName);
 
 
-//Lo pinta en la interfaz - DESAFÍO CLASE 03: CREAR UN ALGORITMO UTILIZANDO UN CICLO
-function playerNameSet(name){
-  while(name == "" || name == null){
-    name = prompt('Por favor ingrese su nombre para continuar');
-  }
-  document.getElementById("player-name").innerHTML = `Player 1: ${name}`;
-}
-
-playerNameSet(playerName);
-
-
-
 //Elije jugador
 
 const avatar1 = new Avatar("Lionel Messi","Paris SG","IZQ", 6,9);
@@ -45,35 +33,112 @@ const listaAvatares = [
 ];
 
 
-for(let jugador of listaAvatares){
-  console.log(jugador);
+const selectScreen = document.querySelector('.select-screen-container');
+const tablaAvatars = document.querySelector('.tabla-avatars');
+
+//Lo pinta en la interfaz - DESAFÍO CLASE 03: CREAR UN ALGORITMO UTILIZANDO UN CICLO
+function playerNameSet(name){
+  while(name == "" || name == null){
+    name = prompt('Por favor ingrese su nombre para continuar');
+  }
+  document.getElementById("player-name").innerHTML = `Player 1: ${name}`;
+
+  tablaAvatars.innerHTML = `
+  <tbody>
+      <tr>
+          <td id="messi" class="izq">${avatar1.nombre}</td>
+          <td id="cr" class="der">${avatar2.nombre}</td>
+      </tr>
+      <tr>
+          <td id="lew" class="der">${avatar3.nombre}</td>
+          <td id="salah" class="izq">${avatar4.nombre}</td>
+      </tr>
+
+      <tr>
+          <td id="mbappe" class="der">${avatar5.nombre}</td>
+          <td id="angel" class="izq">${avatar6.nombre}</td>
+      </tr>
+      <tr>
+          <td id="benze" class="der">${avatar7.nombre}</td>
+          <td id="bale" class="izq">${avatar8.nombre}</td>
+      </tr>
+      <tr>
+          <td id="ney" class="der">${avatar9.nombre}</td>
+          <td id="griez" class="izq">${avatar10.nombre}</td>
+      </tr>
+</tbody>
+              `; 
+
+              for(let jugador of listaAvatares){
+                console.log(jugador.nombre);
+              }
 }
 
+playerNameSet(playerName);
 
 //Botones para filtrar resultados
-
-
-const tablaAvatars = document.querySelector('.tabla-avatars');
 
 //Ver todos
 const allButton = document.getElementById('filter-all');
 
-allButton.addEventListener('click', ()=>{
-  
-  console.log(listaAvatares)
+allButton.addEventListener('click', () =>{
+  tablaAvatars.innerHTML = `
+          <tbody>
+              <tr>
+                  <td id="messi" class="izq">${avatar1.nombre}</td>
+                  <td id="cr" class="der">${avatar2.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="lew" class="der">${avatar3.nombre}</td>
+                  <td id="salah" class="izq">${avatar4.nombre}</td>
+              </tr>
+ 
+              <tr>
+                  <td id="mbappe" class="der">${avatar5.nombre}</td>
+                  <td id="angel" class="izq">${avatar6.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="benze" class="der">${avatar7.nombre}</td>
+                  <td id="bale" class="izq">${avatar8.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="ney" class="der">${avatar9.nombre}</td>
+                  <td id="griez" class="izq">${avatar10.nombre}</td>
+              </tr>
+          </tbody>
+              `;
+
 });
+
 
 //Filtrar Perfiles Izquierdos
 const filterLeft = document.querySelector('#filter-l');
 
 filterLeft.addEventListener('click', ()=>{
   let onlyLeft = listaAvatares.filter(avatar => avatar.perfil.includes("IZQ"));
-
-  document.getElementsByClassName('der').style.display ='none';
-    console.log(onlyLeft)
+  
+  tablaAvatars.innerHTML = `
+          <tbody>
+              <tr>
+                  <td id="messi" class="izq">${avatar1.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="salah" class="izq">${avatar4.nombre}</td>
+              </tr>
+ 
+              <tr>
+                  <td id="angel" class="izq">${avatar6.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="bale" class="izq">${avatar8.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="griez" class="izq">${avatar10.nombre}</td>
+              </tr>
+          </tbody>
+              `;  
+  console.log(onlyLeft)
 });
-
-
 
 
 //Filtrar Perfiles Derechos
@@ -82,14 +147,51 @@ const filterRight = document.querySelector('#filter-r');
 filterRight.addEventListener('click', ()=>{
   let onlyRight = listaAvatares.filter(avatar => avatar.perfil.includes("DER"));
 
-  let onlyLeft = document.getElementsByClassName('izq').children;
+  tablaAvatars.innerHTML = `
+          <tbody>
+              <tr>
+                  <td id="cr" class="der">${avatar2.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="lew" class="der">${avatar3.nombre}</td>
+              </tr>
+ 
+              <tr>
+                  <td id="mbappe" class="der">${avatar5.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="benze" class="der">${avatar7.nombre}</td>
+              </tr>
+              <tr>
+                  <td id="ney" class="der">${avatar9.nombre}</td>
+              </tr>
+          </tbody>
+              `;
 
-  console.log(onlyLeft);
   console.log(onlyRight);
 });
 
 
+tablaAvatars.addEventListener('click', chooseAvatar);
 
+function chooseAvatar(e){
+  e.preventDefault();
+  
+  let avatarName = e.target.innerText;
+  
+  for(let jugador of listaAvatares){
+    let avatarData = jugador.nombre;
+    if(avatarName == avatarData){
+      console.log(`${avatarName} - ${avatarData}`);
+
+      let avatarPlaceholder = jugador.nombreYClub()
+      document.getElementById("avatar-name").innerHTML = avatarPlaceholder;
+
+      break;
+    }
+  }
+  selectScreen.remove();
+}
 
 //Elije la direccion del disparo
 

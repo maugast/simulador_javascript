@@ -11,7 +11,7 @@
         border-left:7px solid rgb(255, 255, 255);
         border-right:7px solid rgb(255, 255, 255);
         background-color: rgba(255, 255, 255, 0.2);
-        height: 200px;
+        height: 224px;
         margin: 50px auto;
         padding:0;
         display: flex;
@@ -34,3 +34,13 @@
     }
 }
 
+.avatar-container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    color: #fff;
+
+    #avatar-name{
+        align-self: center;
+    }
+}
