@@ -7,6 +7,7 @@ console.log(playerName);
 
 //Elije jugador
 
+//Se crean objetos a partir de la clase Avatar
 const avatar1 = new Avatar("Lionel Messi","Paris SG","IZQ", 6,9);
 const avatar2 = new Avatar("Cristiano Ronaldo","Manchester Utd","DER", 7,8);
 const avatar3 = new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7);
@@ -19,6 +20,7 @@ const avatar9 = new Avatar("Neymar","Paris SG","DER", 6,7);
 const avatar10 = new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
 
 
+//Array de Objetos
 const listaAvatares = [
         avatar1,
         avatar2,
@@ -36,7 +38,8 @@ const listaAvatares = [
 const selectScreen = document.querySelector('.select-screen-container');
 const tablaAvatars = document.querySelector('.tabla-avatars');
 
-//Lo pinta en la interfaz
+
+//Pinta el nombre ingreado por prompt() en la interfaz
 function playerNameSet(name){
   while(name == "" || name == null){
     name = prompt('Por favor ingrese su nombre para continuar');
@@ -69,9 +72,11 @@ function playerNameSet(name){
 </tbody>
               `; 
 
-              for(let jugador of listaAvatares){
-                console.log(jugador.nombre);
-              }
+  // Para revisión interna de datos
+  for(let jugador of listaAvatares){
+    console.log(jugador.nombre);
+  }
+
 }
 
 playerNameSet(playerName);
@@ -211,6 +216,8 @@ let dr = document.getElementById('dr');
 
 let getDirection;
 
+
+//Interface a revisar para simplificar su codificación
 ul.addEventListener('click', ()=>{
   getDirection = Math.floor(Math.random() * 10);
   if(getDirection<1){

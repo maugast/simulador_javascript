@@ -6,12 +6,13 @@ class Avatar{
         this.potencia = potencia;
         this.precision = precision;
     }
+    //Muestra datos del Avatar elegido en pantalla
     nombreYClub(){
         return `${this.nombre} - ${this.club}`;
-    }  
+    }
+    //Método a utilizar en próximos desafíos
     disparoExtraPotente(boost){
         this.potencia += boost;
         this.precision -= boost;
     }
 }
-
