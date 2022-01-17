@@ -36,7 +36,7 @@ const listaAvatares = [
 const selectScreen = document.querySelector('.select-screen-container');
 const tablaAvatars = document.querySelector('.tabla-avatars');
 
-//Lo pinta en la interfaz - DESAFÍO CLASE 03: CREAR UN ALGORITMO UTILIZANDO UN CICLO
+//Lo pinta en la interfaz
 function playerNameSet(name){
   while(name == "" || name == null){
     name = prompt('Por favor ingrese su nombre para continuar');
