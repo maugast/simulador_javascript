@@ -71,20 +71,107 @@ header p {
   top: -140px;
   left: 20%;
   animation: selectScreenFadeIn 1s ease-out 1s;
+  /*CLASES PARA ANIMAR AVATARES*/
+  /* FIN CLASES PARA ANIMAR AVATARES*/
 }
 .select-screen-container .select-screen {
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas: "header-title header-title" "left-side right-side" "buttons buttons";
 }
 .select-screen-container .select-screen h2 {
-  margin-top: 40px;
+  margin-top: 30px;
   color: #ebd517;
-  font-size: 2em;
+  font-size: 2rem;
+  grid-area: header-title;
+}
+.select-screen-container .avatar-show-static {
+  grid-area: left-side;
+  background-image: url(../images/avatar.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.select-screen-container .avatar-show-animated-bale {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/bale.png);
+}
+.select-screen-container .avatar-show-animated-benzema {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/benzema.png);
+}
+.select-screen-container .avatar-show-animated-cronaldo {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/cronaldo.png);
+}
+.select-screen-container .avatar-show-animated-dimaria {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/dimaria.png);
+}
+.select-screen-container .avatar-show-animated-griezmann {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/griezmann.png);
+}
+.select-screen-container .avatar-show-animated-lewandowski {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/lewandowski.png);
+}
+.select-screen-container .avatar-show-animated-mbappe {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/mbappe.png);
+}
+.select-screen-container .avatar-show-animated-messi {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/messi.png);
+}
+.select-screen-container .avatar-show-animated-neymar {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/neymar.png);
+}
+.select-screen-container .avatar-show-animated-salah {
+  grid-area: left-side;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: animateAvatar 0.5s ease-in-out;
+  background-image: url(../images/salah.png);
 }
 .select-screen-container .tabla-avatars {
-  margin: 10vh 3vw;
-  width: 90%;
+  margin: 3vh 3vw;
+  min-height: 55vh;
+  width: 50%;
+  font-size: 0.8rem;
+  grid-area: right-side;
 }
 .select-screen-container .tabla-avatars tbody tr td {
+  text-align: end;
   padding: 4px 5px;
   font-family: "Gemunu Libre", sans-serif;
   font-size: 1.5em;
@@ -96,9 +183,9 @@ header p {
   cursor: pointer;
 }
 .select-screen-container #filter-container {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   padding: 30px;
+  grid-area: buttons;
 }
 .select-screen-container #filter-container .filter-btn {
   margin: 0 auto;
@@ -119,6 +206,16 @@ header p {
   100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+@keyframes animateAvatar {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 * {

@@ -49,25 +49,25 @@ function playerNameSet(name){
   tablaAvatars.innerHTML = `
   <tbody>
       <tr>
-          <td id="messi" class="izq">${avatar1.nombre}</td>
-          <td id="cr" class="der">${avatar2.nombre}</td>
+          <td class="izq messi">${avatar1.nombre}</td>
+          <td class="der cr">${avatar2.nombre}</td>
       </tr>
       <tr>
-          <td id="lew" class="der">${avatar3.nombre}</td>
-          <td id="salah" class="izq">${avatar4.nombre}</td>
+          <td class="der lew">${avatar3.nombre}</td>
+          <td class="izq salah">${avatar4.nombre}</td>
       </tr>
 
       <tr>
-          <td id="mbappe" class="der">${avatar5.nombre}</td>
-          <td id="angel" class="izq">${avatar6.nombre}</td>
+          <td class="der mbappe">${avatar5.nombre}</td>
+          <td class="izq angel">${avatar6.nombre}</td>
       </tr>
       <tr>
-          <td id="benze" class="der">${avatar7.nombre}</td>
-          <td id="bale" class="izq">${avatar8.nombre}</td>
+          <td class="der benze">${avatar7.nombre}</td>
+          <td class="izq bale">${avatar8.nombre}</td>
       </tr>
       <tr>
-          <td id="ney" class="der">${avatar9.nombre}</td>
-          <td id="griez" class="izq">${avatar10.nombre}</td>
+          <td class="der ney">${avatar9.nombre}</td>
+          <td class="izq griez">${avatar10.nombre}</td>
       </tr>
 </tbody>
               `; 
@@ -90,11 +90,11 @@ allButton.addEventListener('click', () =>{
   tablaAvatars.innerHTML = `
           <tbody>
               <tr>
-                  <td id="messi" class="izq">${avatar1.nombre}</td>
-                  <td id="cr" class="der">${avatar2.nombre}</td>
+                  <td class="izq messi">${avatar1.nombre}</td>
+                  <td class="der cr">${avatar2.nombre}</td>
               </tr>
               <tr>
-                  <td id="lew" class="der">${avatar3.nombre}</td>
+                  <td class="der lew">${avatar3.nombre}</td>
                   <td id="salah" class="izq">${avatar4.nombre}</td>
               </tr>
  
@@ -103,7 +103,7 @@ allButton.addEventListener('click', () =>{
                   <td id="angel" class="izq">${avatar6.nombre}</td>
               </tr>
               <tr>
-                  <td id="benze" class="der">${avatar7.nombre}</td>
+                  <td class="der benze">${avatar7.nombre}</td>
                   <td id="bale" class="izq">${avatar8.nombre}</td>
               </tr>
               <tr>
@@ -176,7 +176,8 @@ filterRight.addEventListener('click', ()=>{
   console.log(onlyRight);
 });
 
-
+tablaAvatars.addEventListener('mouseover', showAvatar);
+tablaAvatars.addEventListener('mouseout', resetAvatar);
 tablaAvatars.addEventListener('click', chooseAvatar);
 
 function chooseAvatar(e){
@@ -197,6 +198,39 @@ function chooseAvatar(e){
   }
   selectScreen.remove();
 }
+
+let avatarShow = document.querySelector('.avatar-show-static');
+
+function showAvatar(e){
+  e.preventDefault();
+  if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
+    console.log('izq o der');
+
+    if(e.target.classList.contains('bale')){
+      console.log('es bale');
+      avatarShow.setAttribute('class','avatar-show-animated-bale');
+    }
+    else if(e.target.classList.contains('messi')){
+      avatarShow.setAttribute('class','avatar-show-animated-messi');
+    }
+    else if(e.target.classList.contains('benze')){
+      avatarShow.setAttribute('class','avatar-show-animated-benze');
+    }
+    else if(e.target.classList.contains('cronaldo')){
+      avatarShow.setAttribute('class','avatar-show-animated-cronaldo');
+    }
+  }
+}
+
+
+function resetAvatar(e){
+  e.preventDefault();
+  if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
+    console.log('izq o der');
+    avatarShow.setAttribute('class','avatar-show-static');
+  }
+}
+
 
 //Elije la direccion del disparo
 

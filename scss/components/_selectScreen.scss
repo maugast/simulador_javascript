@@ -1,7 +1,7 @@
 @import '../base/colors';
 @import '../base/fonts';
-
-
+@import '../base/mixins';
+@import '../base/avatars';
 
 .select-screen-container{
     width: 60%;
@@ -12,20 +12,108 @@
     top: -140px;
     left: 20%;
     animation: selectScreenFadeIn 1s ease-out 1s;
+
     .select-screen{
         text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 3fr 1fr;
+        grid-template-areas:
+            "header-title header-title"
+            "left-side right-side"
+            "buttons buttons";
+
         h2{
-            margin-top: 40px;
+            margin-top: 30px;
             color: map-get($colors, primario);
-            font-size: 2em;
+            font-size: 2rem;
+            grid-area: header-title;
         }
     }
+
+    .avatar-show-static{
+        grid-area: left-side;
+        background-image: url(../images/avatar.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+
+/*CLASES PARA ANIMAR AVATARES*/
+
+    .avatar-show-animated-bale{
+            grid-area: left-side;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: animateAvatar .5s ease-in-out;
+            background-image: $img-bale;
+    }
+
+    .avatar-show-animated-benzema{
+            grid-area: left-side;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: animateAvatar .5s ease-in-out;
+            background-image: $img-benzema;
+    }
+
+    .avatar-show-animated-cronaldo{
+            grid-area: left-side;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: animateAvatar .5s ease-in-out;
+            background-image: $img-cronaldo;
+    }
+
+    .avatar-show-animated-dimaria{
+        @include avatar-show-animated;
+        background-image: $img-dimaria;
+    }
+
+    .avatar-show-animated-griezmann{
+        @include avatar-show-animated;
+        background-image: $img-griezmann;
+    }
+
+    .avatar-show-animated-lewandowski{
+        @include avatar-show-animated;
+        background-image: $img-lewandowski;
+    }
+
+    .avatar-show-animated-mbappe{
+        @include avatar-show-animated;
+        background-image: $img-mbappe;
+    }
+
+    .avatar-show-animated-messi{
+        @include avatar-show-animated;
+        background-image: $img-messi;
+    }
+
+    .avatar-show-animated-neymar{
+        @include avatar-show-animated;
+        background-image: $img-neymar;
+    }
+
+    .avatar-show-animated-salah{
+        @include avatar-show-animated;
+        background-image: $img-salah;
+    }
+
+/* FIN CLASES PARA ANIMAR AVATARES*/
+
+
     .tabla-avatars{
-        margin: 10vh 3vw;
-        width: 90%;
+        margin: 3vh 3vw;
+        min-height: 55vh;
+        width: 50%;
+        font-size: .8rem;
+        grid-area: right-side;
+
         tbody{
             tr{
                 td{
+                    text-align: end;
                     padding: 4px 5px;
                     font-family: 'Gemunu Libre', sans-serif;
                     font-size: 1.5em;
@@ -40,10 +128,11 @@
             }  
         }
     }
+
     #filter-container{
-        display: flex;
-        justify-content: center;
+        text-align: center;
         padding: 30px;
+        grid-area: buttons;
 
         .filter-btn{
             margin: 0 auto;
@@ -66,5 +155,17 @@
     100%{
         opacity: 1;
         transform: translateY(0px);
+    }
+}
+
+
+@keyframes animateAvatar {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
     }
 }

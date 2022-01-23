@@ -1,0 +1,7 @@
+
+@mixin avatar-show-animated{
+    grid-area: left-side;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: animateAvatar .5s ease-in-out;
+}
