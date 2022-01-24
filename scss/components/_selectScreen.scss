@@ -34,6 +34,7 @@
     .avatar-show-static{
         grid-area: left-side;
         background-image: url(../images/avatar.png);
+        opacity: 0;
         background-size: contain;
         background-repeat: no-repeat;
     }
@@ -42,26 +43,17 @@
 /*CLASES PARA ANIMAR AVATARES*/
 
     .avatar-show-animated-bale{
-            grid-area: left-side;
-            background-size: contain;
-            background-repeat: no-repeat;
-            animation: animateAvatar .5s ease-in-out;
+            @include avatar-show-animated;
             background-image: $img-bale;
     }
 
     .avatar-show-animated-benzema{
-            grid-area: left-side;
-            background-size: contain;
-            background-repeat: no-repeat;
-            animation: animateAvatar .5s ease-in-out;
+            @include avatar-show-animated;
             background-image: $img-benzema;
     }
 
     .avatar-show-animated-cronaldo{
-            grid-area: left-side;
-            background-size: contain;
-            background-repeat: no-repeat;
-            animation: animateAvatar .5s ease-in-out;
+            @include avatar-show-animated;
             background-image: $img-cronaldo;
     }
 

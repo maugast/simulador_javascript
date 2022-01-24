@@ -90,6 +90,7 @@ header p {
 .select-screen-container .avatar-show-static {
   grid-area: left-side;
   background-image: url(../images/avatar.png);
+  opacity: 0;
   background-size: contain;
   background-repeat: no-repeat;
 }

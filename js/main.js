@@ -37,7 +37,9 @@ const listaAvatares = [
 
 const selectScreen = document.querySelector('.select-screen-container');
 const tablaAvatars = document.querySelector('.tabla-avatars');
+const tdAvatar = document.getElementsByTagName('td');
 
+console.log(tdAvatar);
 
 //Pinta el nombre ingreado por prompt() en la interfaz
 function playerNameSet(name){
@@ -50,24 +52,24 @@ function playerNameSet(name){
   <tbody>
       <tr>
           <td class="izq messi">${avatar1.nombre}</td>
-          <td class="der cr">${avatar2.nombre}</td>
+          <td class="der cronaldo">${avatar2.nombre}</td>
       </tr>
       <tr>
-          <td class="der lew">${avatar3.nombre}</td>
+          <td class="der lewandowski">${avatar3.nombre}</td>
           <td class="izq salah">${avatar4.nombre}</td>
       </tr>
 
       <tr>
           <td class="der mbappe">${avatar5.nombre}</td>
-          <td class="izq angel">${avatar6.nombre}</td>
+          <td class="izq dimaria">${avatar6.nombre}</td>
       </tr>
       <tr>
-          <td class="der benze">${avatar7.nombre}</td>
+          <td class="der benzema">${avatar7.nombre}</td>
           <td class="izq bale">${avatar8.nombre}</td>
       </tr>
       <tr>
-          <td class="der ney">${avatar9.nombre}</td>
-          <td class="izq griez">${avatar10.nombre}</td>
+          <td class="der neymar">${avatar9.nombre}</td>
+          <td class="izq griezmann">${avatar10.nombre}</td>
       </tr>
 </tbody>
               `; 
@@ -91,24 +93,24 @@ allButton.addEventListener('click', () =>{
           <tbody>
               <tr>
                   <td class="izq messi">${avatar1.nombre}</td>
-                  <td class="der cr">${avatar2.nombre}</td>
+                  <td class="der cronaldo">${avatar2.nombre}</td>
               </tr>
               <tr>
-                  <td class="der lew">${avatar3.nombre}</td>
-                  <td id="salah" class="izq">${avatar4.nombre}</td>
+                  <td class="der lewandowski">${avatar3.nombre}</td>
+                  <td class="izq salah">${avatar4.nombre}</td>
               </tr>
  
               <tr>
-                  <td id="mbappe" class="der">${avatar5.nombre}</td>
-                  <td id="angel" class="izq">${avatar6.nombre}</td>
+                  <td class="der mbappe">${avatar5.nombre}</td>
+                  <td class="izq dimaria">${avatar6.nombre}</td>
               </tr>
               <tr>
-                  <td class="der benze">${avatar7.nombre}</td>
-                  <td id="bale" class="izq">${avatar8.nombre}</td>
+                  <td class="der benzema">${avatar7.nombre}</td>
+                  <td class="izq bale">${avatar8.nombre}</td>
               </tr>
               <tr>
-                  <td id="ney" class="der">${avatar9.nombre}</td>
-                  <td id="griez" class="izq">${avatar10.nombre}</td>
+                  <td class="der neymar">${avatar9.nombre}</td>
+                  <td class="izq griezmann">${avatar10.nombre}</td>
               </tr>
           </tbody>
               `;
@@ -125,20 +127,20 @@ filterLeft.addEventListener('click', ()=>{
   tablaAvatars.innerHTML = `
           <tbody>
               <tr>
-                  <td id="messi" class="izq">${avatar1.nombre}</td>
+                  <td class="izq messi">${avatar1.nombre}</td>
               </tr>
               <tr>
-                  <td id="salah" class="izq">${avatar4.nombre}</td>
+                  <td class="izq salah">${avatar4.nombre}</td>
               </tr>
  
               <tr>
-                  <td id="angel" class="izq">${avatar6.nombre}</td>
+                  <td class="izq dimaria">${avatar6.nombre}</td>
               </tr>
               <tr>
-                  <td id="bale" class="izq">${avatar8.nombre}</td>
+                  <td class="izq bale">${avatar8.nombre}</td>
               </tr>
               <tr>
-                  <td id="griez" class="izq">${avatar10.nombre}</td>
+                  <td class="izq griezmann">${avatar10.nombre}</td>
               </tr>
           </tbody>
               `;  
@@ -155,20 +157,20 @@ filterRight.addEventListener('click', ()=>{
   tablaAvatars.innerHTML = `
           <tbody>
               <tr>
-                  <td id="cr" class="der">${avatar2.nombre}</td>
+                  <td class="der cronaldo">${avatar2.nombre}</td>
               </tr>
               <tr>
-                  <td id="lew" class="der">${avatar3.nombre}</td>
+                  <td class="der lewandowski">${avatar3.nombre}</td>
               </tr>
  
               <tr>
-                  <td id="mbappe" class="der">${avatar5.nombre}</td>
+                  <td class="der mbappe">${avatar5.nombre}</td>
               </tr>
               <tr>
-                  <td id="benze" class="der">${avatar7.nombre}</td>
+                  <td class="der benzema">${avatar7.nombre}</td>
               </tr>
               <tr>
-                  <td id="ney" class="der">${avatar9.nombre}</td>
+                  <td class="der neymar">${avatar9.nombre}</td>
               </tr>
           </tbody>
               `;
@@ -206,18 +208,35 @@ function showAvatar(e){
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
     console.log('izq o der');
 
-    if(e.target.classList.contains('bale')){
-      console.log('es bale');
-      avatarShow.setAttribute('class','avatar-show-animated-bale');
-    }
-    else if(e.target.classList.contains('messi')){
+    if(e.target.classList.contains('messi')){
       avatarShow.setAttribute('class','avatar-show-animated-messi');
     }
-    else if(e.target.classList.contains('benze')){
-      avatarShow.setAttribute('class','avatar-show-animated-benze');
+    else if(e.target.classList.contains('benzema')){
+      avatarShow.setAttribute('class','avatar-show-animated-benzema');
     }
     else if(e.target.classList.contains('cronaldo')){
       avatarShow.setAttribute('class','avatar-show-animated-cronaldo');
+    }
+    else if(e.target.classList.contains('bale')){
+      avatarShow.setAttribute('class','avatar-show-animated-bale');
+    }
+    else if(e.target.classList.contains('dimaria')){
+      avatarShow.setAttribute('class','avatar-show-animated-dimaria');
+    }
+    else if(e.target.classList.contains('griezmann')){
+      avatarShow.setAttribute('class','avatar-show-animated-griezmann');
+    }
+    else if(e.target.classList.contains('lewandowski')){
+      avatarShow.setAttribute('class','avatar-show-animated-lewandowski');
+    }
+    else if(e.target.classList.contains('mbappe')){
+      avatarShow.setAttribute('class','avatar-show-animated-mbappe');
+    }
+    else if(e.target.classList.contains('neymar')){
+      avatarShow.setAttribute('class','avatar-show-animated-neymar');
+    }
+    else if(e.target.classList.contains('salah')){
+      avatarShow.setAttribute('class','avatar-show-animated-salah');
     }
   }
 }
