@@ -266,17 +266,22 @@ let dc = document.getElementById('dc');
 let dr = document.getElementById('dr');
 
 
-
+const arco = document.querySelector('.tabla-arco');
+console.log(arco);
 let getDirection;
 
 
 //Interface a revisar para simplificar su codificación
+
+
+
 ul.addEventListener('click', ()=>{
   getDirection = Math.floor(Math.random() * 10);
   if(getDirection<1){
     getDirection+=1;
   }
   console.log(getDirection);
+  console.log(arco);
 });
 
 uc.addEventListener('click', () =>{
