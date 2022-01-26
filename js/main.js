@@ -8,16 +8,16 @@ console.log(playerName);
 //Elije jugador
 
 //Se crean objetos a partir de la clase Avatar
-const avatar1 = new Avatar("Lionel Messi","Paris SG","IZQ", 6,9);
-const avatar2 = new Avatar("Cristiano Ronaldo","Manchester Utd","DER", 7,8);
-const avatar3 = new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7);
-const avatar4 = new Avatar("Mohamed Salah","Liverpool","IZQ", 7,6);
-const avatar5 = new Avatar("Kylian Mbappe","Paris SG","DER", 8,7);
-const avatar6 = new Avatar("Ángel Di María","Paris SG","IZQ", 5,8);
-const avatar7 = new Avatar("Karim Benzema","Real Madrid","DER", 7,6);
-const avatar8 = new Avatar("Gareth Bale","Real Madrid","IZQ", 6,8);
-const avatar9 = new Avatar("Neymar","Paris SG","DER", 6,7);
-const avatar10 = new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
+const avatar1 = new Avatar(1,"Lionel Messi","Paris SG","IZQ", 6,9);
+const avatar2 = new Avatar(2,"Cristiano Ronaldo","Manchester Utd","DER", 7,8);
+const avatar3 = new Avatar(3,"Robert Lewandowski","Bayern Munich","DER", 7,7);
+const avatar4 = new Avatar(4,"Mohamed Salah","Liverpool","IZQ", 7,6);
+const avatar5 = new Avatar(5,"Kylian Mbappe","Paris SG","DER", 8,7);
+const avatar6 = new Avatar(6,"Ángel Di María","Paris SG","IZQ", 5,8);
+const avatar7 = new Avatar(7,"Karim Benzema","Real Madrid","DER", 7,6);
+const avatar8 = new Avatar(8,"Gareth Bale","Real Madrid","IZQ", 6,8);
+const avatar9 = new Avatar(9,"Neymar","Paris SG","DER", 6,7);
+const avatar10 = new Avatar(10,"Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
 
 
 //Array de Objetos
@@ -34,12 +34,10 @@ const listaAvatares = [
         avatar10
 ];
 
-
 const selectScreen = document.querySelector('.select-screen-container');
 const tablaAvatars = document.querySelector('.tabla-avatars');
-const tdAvatar = document.getElementsByTagName('td');
+const tablaBody = document.getElementById('tabla-body');
 
-console.log(tdAvatar);
 
 //Pinta el nombre ingreado por prompt() en la interfaz
 function playerNameSet(name){
@@ -49,35 +47,30 @@ function playerNameSet(name){
   document.getElementById("player-name").innerHTML = `Player 1: ${name}`;
 
   tablaAvatars.innerHTML = `
-  <tbody>
-      <tr>
-          <td class="izq messi">${avatar1.nombre}</td>
-          <td class="der cronaldo">${avatar2.nombre}</td>
-      </tr>
-      <tr>
-          <td class="der lewandowski">${avatar3.nombre}</td>
-          <td class="izq salah">${avatar4.nombre}</td>
-      </tr>
-
-      <tr>
-          <td class="der mbappe">${avatar5.nombre}</td>
-          <td class="izq dimaria">${avatar6.nombre}</td>
-      </tr>
-      <tr>
-          <td class="der benzema">${avatar7.nombre}</td>
-          <td class="izq bale">${avatar8.nombre}</td>
-      </tr>
-      <tr>
-          <td class="der neymar">${avatar9.nombre}</td>
-          <td class="izq griezmann">${avatar10.nombre}</td>
-      </tr>
-</tbody>
-              `; 
-
-  // Para revisión interna de datos
-  for(let jugador of listaAvatares){
-    console.log(jugador.nombre);
-  }
+          <tbody>
+              <tr>
+                  <td class="izq messi">${avatar1.nombre}</td>
+                  <td class="der cronaldo">${avatar2.nombre}</td>
+              </tr>
+              <tr>
+                  <td class="der lewandowski">${avatar3.nombre}</td>
+                  <td class="izq salah">${avatar4.nombre}</td>
+              </tr>
+ 
+              <tr>
+                  <td class="der mbappe">${avatar5.nombre}</td>
+                  <td class="izq dimaria">${avatar6.nombre}</td>
+              </tr>
+              <tr>
+                  <td class="der benzema">${avatar7.nombre}</td>
+                  <td class="izq bale">${avatar8.nombre}</td>
+              </tr>
+              <tr>
+                  <td class="der neymar">${avatar9.nombre}</td>
+                  <td class="izq griezmann">${avatar10.nombre}</td>
+              </tr>
+          </tbody>
+              `;
 
 }
 

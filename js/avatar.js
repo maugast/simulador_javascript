@@ -1,5 +1,6 @@
 class Avatar{
-    constructor(nombre, club, perfil, potencia, precision){
+    constructor(id,nombre, club, perfil, potencia, precision){
+        this.id = id;
         this.nombre = nombre;
         this.club = club;
         this.perfil = perfil;
