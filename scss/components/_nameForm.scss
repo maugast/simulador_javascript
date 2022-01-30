@@ -5,7 +5,7 @@
 
 .name-form-container{
     @include form;
-
+    z-index: 1;
     .name-form{
         text-align: center;
         margin: 5rem auto;
