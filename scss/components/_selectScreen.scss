@@ -3,14 +3,9 @@
 @import '../base/mixins';
 @import '../base/avatars';
 
+
 .select-screen-container{
-    width: 60%;
-    height: 600px;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 15px;
-    position: absolute;
-    top: -140px;
-    left: 20%;
+    @include form;
     animation: selectScreenFadeIn 1s ease-out 1s;
 
     .select-screen{
@@ -95,7 +90,7 @@
 /* FIN CLASES PARA ANIMAR AVATARES*/
 
 
-    .tabla-avatars{
+    .avatar-table{
         margin: 3vh 3vw;
         min-height: 55vh;
         width: 50%;

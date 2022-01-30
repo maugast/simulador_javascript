@@ -1,0 +1,14 @@
+@import '../base/colors';
+@import '../base/fonts';
+@import '../base/mixins';
+@import '../base/avatars';
+
+.name-form-container{
+    @include form;
+
+    .name-form{
+        text-align: center;
+        margin: 5rem auto;
+        width: 50%;
+    }
+}

@@ -1,9 +1,12 @@
 @import '../base/colors';
 
-.container-arco{
+.goal-container{
     display: flex;
     justify-content: center;
-    .tabla-arco{
+    .score-record{
+        justify-content: space-around;
+    }
+    .goal-table{
         color: #fff;
         font-family: 'Gemunu Libre', sans-serif;
         font-size: 1.3em;
