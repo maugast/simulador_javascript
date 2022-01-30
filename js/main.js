@@ -196,6 +196,9 @@ function chooseAvatar(e){
 
 let avatarShow = document.querySelector('.avatar-show-static');
 
+
+//Asignar animaciones a los avatares
+
 function showAvatar(e){
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
@@ -344,7 +347,7 @@ dr.addEventListener('click', () =>{
 
 
 //Dispara
-let buttonShot = document.getElementById('shot');
+const buttonShot = document.getElementById('shot');
 
 buttonShot.addEventListener('click', ()=>{
   if(getDirection){
