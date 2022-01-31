@@ -5,10 +5,27 @@
 
 .name-form-container{
     @include form;
+    animation: formScreenFadeIn 1s ease-out 1s;
     z-index: 1;
     .name-form{
-        text-align: center;
-        margin: 5rem auto;
-        width: 50%;
+        font-size: 1.5rem;
+        color: map-get($colors, primario);
+        @include formText;
+        .alert-form{
+            border: 1px solid red;
+            box-shadow:1px 1px 20px red inset;
+        }
+    }
+    
+}
+
+@keyframes formScreenFadeIn {
+    0%{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

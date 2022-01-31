@@ -15,3 +15,9 @@
     top: -140px;
     left: 20%;
 }
+
+@mixin formText{
+    text-align: center;
+    margin: 10rem auto;
+    width: 50%;
+}

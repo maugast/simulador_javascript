@@ -24,13 +24,28 @@ header p {
   padding-top: 20px;
   font-size: 1.4em;
 }
+header .score-record {
+  color: #ebd517;
+  align-self: center;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+header .score-record #score-box {
+  display: inline-block;
+  color: black;
+  background-color: #ebd517;
+  min-width: 5rem;
+  height: 1.6rem;
+  margin-left: 0.4rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
 
 .goal-container {
   display: flex;
   justify-content: center;
-}
-.goal-container .score-record {
-  justify-content: space-around;
+  margin-top: -10vh;
 }
 .goal-container .goal-table {
   color: #fff;
@@ -76,6 +91,7 @@ header p {
   top: -140px;
   left: 20%;
   animation: selectScreenFadeIn 1s ease-out 1s;
+  z-index: 0;
   /*CLASES PARA ANIMAR AVATARES*/
   /* FIN CLASES PARA ANIMAR AVATARES*/
 }
@@ -170,7 +186,7 @@ header p {
   background-image: url(../images/salah.png);
 }
 .select-screen-container .avatar-table {
-  margin: 3vh 3vw;
+  margin: -2vh 3vw;
   min-height: 55vh;
   width: 50%;
   font-size: 0.8rem;
@@ -232,13 +248,31 @@ header p {
   position: absolute;
   top: -140px;
   left: 20%;
+  animation: formScreenFadeIn 1s ease-out 1s;
+  z-index: 1;
 }
 .name-form-container .name-form {
+  font-size: 1.5rem;
+  color: #ebd517;
   text-align: center;
-  margin: 5rem auto;
+  margin: 10rem auto;
   width: 50%;
 }
+.name-form-container .name-form .alert-form {
+  border: 1px solid red;
+  box-shadow: 1px 1px 20px red inset;
+}
 
+@keyframes formScreenFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 * {
   margin: 0;
   padding: 0;
