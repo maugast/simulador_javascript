@@ -35,12 +35,14 @@ const filterLeft = document.querySelector('#filter-l');
 const filterRight = document.querySelector('#filter-r');
 const avatarShow = document.querySelector('.avatar-show-static');
 const buttonShot = document.getElementById('shot');
-
+const resetScoreButton = document.querySelector('#reset-score-button');
 const goal = document.querySelector('.goal-table');
 let getDirection;
 let setDirection;
 let score = document.querySelector('#score-box');
 let points = getScore();
+let popUp = document.querySelector('.popup');
+
 
 //Event Listeners
 
@@ -167,32 +169,79 @@ avatarTable.addEventListener('click', chooseAvatar);
 goal.addEventListener('click',(e)=>{
   e.preventDefault();
   setDirection = true;
-  console.log(setDirection);
+
+  console.log(`valor de setDirection: ${setDirection}`);
+  console.log(`valor de e: ${e.target}`);
 
   getDirection = Math.floor(Math.random() * 10);
-  if(e && getDirection<1){
+  if(getDirection<1){
     getDirection+=1;
   }
+  console.log(`valor de getDirection: ${getDirection}`);
 });
+
 
 buttonShot.addEventListener('click', (e)=>{
   e.preventDefault();
+
   if(setDirection == true){
     console.log(`valor de setDirection: ${setDirection}`);
     if(getDirection >= 5){
       getDirection - Math.floor(Math.random() * 10)
       console.log(getDirection);
-      alert('GOOOOL!!!')
+
+      let popUpNotification = document.querySelector('#popup-notification');
+      popUp.setAttribute('class','popup-animated');
+      popUpNotification.innerHTML = ` <div style="margin-top: -100px">
+                                        <span class="close-button">x</span>
+                                        <p>GOOOLL!!!</p>
+                                      </div>`;
+
       points+=10;
       score.innerHTML = `${points}`;
 
       setScore(points);
 
+      let closeButton = document.querySelector('.close-button');
+      closeButton.addEventListener('click',()=>{
+      popUp.removeAttribute('class','popup-animated');
+      popUp.setAttribute('class','popup');
+
+      });
+
       console.log(points);
+    }
+    else{
+      let popUpNotification = document.querySelector('#popup-notification');
+      popUp.setAttribute('class','popup-animated');
+      popUpNotification.innerHTML = ` <div style="margin-top: -100px">
+                                        <span class="close-button">x</span>
+                                        <p>ATAJÓ EL ARQUERO!!</p>
+                                      </div>`;
+
+      let closeButton = document.querySelector('.close-button');
+      closeButton.addEventListener('click',()=>{
+      popUp.removeAttribute('class','popup-animated');
+      popUp.setAttribute('class','popup');
+                                
+      });   
     }
   }
   else{
-    alert('Por favor selecciona la dirección del disparo');
+    let popUpNotification = document.querySelector('#popup-notification');
+    popUp.setAttribute('class','popup-animated');
+    popUpNotification.innerHTML = ` <div style="margin-top: -100px">
+                                        <span class="close-button">x</span>
+                                        <p style="font-size: 1.5rem">Por favor seleccioná la dirección del disparo</p>
+                                    </div>`;
+
+    let closeButton = document.querySelector('.close-button');
+    closeButton.addEventListener('click',()=>{
+    popUp.removeAttribute('class','popup-animated');
+    popUp.setAttribute('class','popup');
+                                                              
+    }); 
+
     setDirection = false;
     console.log(`valor de setDirection: ${setDirection}`);
   }
@@ -200,6 +249,14 @@ buttonShot.addEventListener('click', (e)=>{
 }
 );
 
+
+
+resetScoreButton.addEventListener('click',()=>{
+  localStorage.clear();
+  points = 0;
+  score.innerHTML = `${points}`;
+
+});
 
 
 //Funciones
