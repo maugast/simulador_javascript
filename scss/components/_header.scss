@@ -17,15 +17,12 @@ header{
     p{
         align-self: center;
         font-family: 'Gemunu Libre', sans-serif;
-        padding-top: 20px;
         font-size: 1.4em;
     }
     .score-record{
         color: map-get($colors, primario);
         align-self: center;
         font-size: 2rem;
-        display: flex;
-        align-items: center;
         #score-box{
             display: inline-block;
             color:black;
@@ -35,6 +32,22 @@ header{
             margin-left: .4rem;
             border-radius: 10px;
             font-size: 1.5rem;
+        }
+        #reset-score-button{
+            display: inline-block;
+            color: #fff;
+            background-color: black;
+            margin-left: 5px;
+            padding: 5px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            position: relative;
+            top: -6px;
+            cursor: pointer;
+            
+            p{
+                margin: 0 2px;
+            }
         }
     }
 }

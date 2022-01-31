@@ -23,15 +23,12 @@ header h3 {
 header p {
   align-self: center;
   font-family: "Gemunu Libre", sans-serif;
-  padding-top: 20px;
   font-size: 1.4em;
 }
 header .score-record {
   color: #ebd517;
   align-self: center;
   font-size: 2rem;
-  display: flex;
-  align-items: center;
 }
 header .score-record #score-box {
   display: inline-block;
@@ -42,6 +39,21 @@ header .score-record #score-box {
   margin-left: 0.4rem;
   border-radius: 10px;
   font-size: 1.5rem;
+}
+header .score-record #reset-score-button {
+  display: inline-block;
+  color: #fff;
+  background-color: black;
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  position: relative;
+  top: -6px;
+  cursor: pointer;
+}
+header .score-record #reset-score-button p {
+  margin: 0 2px;
 }
 
 .goal-container {
@@ -282,21 +294,30 @@ header .score-record #score-box {
 .popup-animated {
   display: flex;
   width: 60%;
-  height: 160px;
+  height: 250px;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 15px;
   position: absolute;
-  top: 100px;
+  top: 40px;
   left: 20%;
   z-index: 2;
   animation: popUpFadeIn 0.3s ease-in-out;
 }
 .popup-animated #popup-notification {
   font-size: 2.5rem;
+  top: 100px;
+  left: 20%;
   color: #ebd517;
   text-align: center;
   margin: 10rem auto;
   width: 50%;
+}
+
+.close-button {
+  font-size: 1.5rem;
+  float: right;
+  color: blanchedalmond;
+  cursor: pointer;
 }
 
 @keyframes popUpFadeIn {
