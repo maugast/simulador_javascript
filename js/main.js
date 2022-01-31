@@ -1,25 +1,6 @@
 
 //Variables
 
-<<<<<<< HEAD
-let playerName = prompt('!Bienvenido!, ingrese su nombre para continuar');
-console.log(playerName);
-
-
-//Elije jugador
-
-//Se crean objetos a partir de la clase Avatar
-const avatar1 = new Avatar(1,"Lionel Messi","Paris SG","IZQ", 6,9);
-const avatar2 = new Avatar(2,"Cristiano Ronaldo","Manchester Utd","DER", 7,8);
-const avatar3 = new Avatar(3,"Robert Lewandowski","Bayern Munich","DER", 7,7);
-const avatar4 = new Avatar(4,"Mohamed Salah","Liverpool","IZQ", 7,6);
-const avatar5 = new Avatar(5,"Kylian Mbappe","Paris SG","DER", 8,7);
-const avatar6 = new Avatar(6,"Ángel Di María","Paris SG","IZQ", 5,8);
-const avatar7 = new Avatar(7,"Karim Benzema","Real Madrid","DER", 7,6);
-const avatar8 = new Avatar(8,"Gareth Bale","Real Madrid","IZQ", 6,8);
-const avatar9 = new Avatar(9,"Neymar","Paris SG","DER", 6,7);
-const avatar10 = new Avatar(10,"Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
-=======
 const playerName = document.querySelector('#player-name-input');
 const goButton = document.querySelector('#btn-go');
 const nameForm = document.querySelector('.name-form-container');
@@ -33,7 +14,6 @@ const avatar7 = new Avatar("Karim Benzema","Real Madrid","DER", 7,6);
 const avatar8 = new Avatar("Gareth Bale","Real Madrid","IZQ", 6,8);
 const avatar9 = new Avatar("Neymar","Paris SG","DER", 6,7);
 const avatar10 = new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
->>>>>>> pruebas
 
 const avatarList = [
         avatar1,
@@ -49,11 +29,6 @@ const avatarList = [
 ];
 
 const selectScreen = document.querySelector('.select-screen-container');
-<<<<<<< HEAD
-const tablaAvatars = document.querySelector('.tabla-avatars');
-const tablaBody = document.getElementById('tabla-body');
-
-=======
 const avatarTable = document.querySelector('.avatar-table');
 const allButton = document.getElementById('filter-all');
 const filterLeft = document.querySelector('#filter-l');
@@ -68,7 +43,6 @@ let score = document.querySelector('#score-box');
 let points = getScore();
 
 //Event Listeners
->>>>>>> pruebas
 
 goButton.addEventListener('click',(e)=>{
   e.preventDefault();
@@ -76,35 +50,6 @@ goButton.addEventListener('click',(e)=>{
     playerName.classList.add('alert-form');
     console.log('Faltan datos');
   }
-<<<<<<< HEAD
-  document.getElementById("player-name").innerHTML = `Player 1: ${name}`;
-
-  tablaAvatars.innerHTML = `
-          <tbody>
-              <tr>
-                  <td class="izq messi">${avatar1.nombre}</td>
-                  <td class="der cronaldo">${avatar2.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der lewandowski">${avatar3.nombre}</td>
-                  <td class="izq salah">${avatar4.nombre}</td>
-              </tr>
- 
-              <tr>
-                  <td class="der mbappe">${avatar5.nombre}</td>
-                  <td class="izq dimaria">${avatar6.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der benzema">${avatar7.nombre}</td>
-                  <td class="izq bale">${avatar8.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der neymar">${avatar9.nombre}</td>
-                  <td class="izq griezmann">${avatar10.nombre}</td>
-              </tr>
-          </tbody>
-              `;
-=======
   else{
     document.querySelector("#player-name").innerHTML = `Player 1: ${playerName.value}`;
     let main = document.querySelector('#main-container');
@@ -112,7 +57,6 @@ goButton.addEventListener('click',(e)=>{
     avatarListSet();
   }
 });
->>>>>>> pruebas
 
 
 allButton.addEventListener('click', () =>{
@@ -354,14 +298,6 @@ function chooseAvatar(e){
   score.innerHTML = `${points}`;
 }
 
-<<<<<<< HEAD
-let avatarShow = document.querySelector('.avatar-show-static');
-
-
-//Asignar animaciones a los avatares
-
-=======
->>>>>>> pruebas
 function showAvatar(e){
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
@@ -413,113 +349,9 @@ function setScore(pts){
   localStorage.setItem('score', pts);
 }
 
-<<<<<<< HEAD
-//Elije la direccion del disparo
-
-let ul = document.getElementById('ul');
-let uc = document.getElementById('uc');
-let ur = document.getElementById('ur');
-
-let ml = document.getElementById('ml');
-let mc = document.getElementById('mc');
-let mr = document.getElementById('mr');
-
-let dl = document.getElementById('dl');
-let dc = document.getElementById('dc');
-let dr = document.getElementById('dr');
-
-
-const arco = document.querySelector('.tabla-arco');
-console.log(arco);
-let getDirection;
-
-
-//Interface a revisar para simplificar su codificación
-
-
-
-ul.addEventListener('click', ()=>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-  console.log(arco);
-});
-
-uc.addEventListener('click', () =>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-});
-
-ur.addEventListener('click', () =>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-});
-
-ml.addEventListener('click', () =>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-});
-
-mc.addEventListener('click', () =>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-});
-
-mr.addEventListener('click', () =>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-});
-
-dl.addEventListener('click', () =>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-});
-
-dc.addEventListener('click', () =>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-});
-
-dr.addEventListener('click', () =>{
-  getDirection = Math.floor(Math.random() * 10);
-  if(getDirection<1){
-    getDirection+=1;
-  }
-  console.log(getDirection);
-});
-
-
-
-//Dispara
-const buttonShot = document.getElementById('shot');
-=======
 function getScore(){
   let record = localStorage.getItem('score');
   record = Number(record);
   return record;
->>>>>>> pruebas
 
 }
