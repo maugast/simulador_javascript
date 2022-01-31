@@ -41,6 +41,8 @@ let getDirection;
 let setDirection;
 let score = document.querySelector('#score-box');
 let points = getScore();
+let popUp = document.querySelector('.popup');
+
 
 //Event Listeners
 
@@ -177,12 +179,17 @@ goal.addEventListener('click',(e)=>{
 
 buttonShot.addEventListener('click', (e)=>{
   e.preventDefault();
+
   if(setDirection == true){
     console.log(`valor de setDirection: ${setDirection}`);
     if(getDirection >= 5){
       getDirection - Math.floor(Math.random() * 10)
       console.log(getDirection);
-      alert('GOOOOL!!!')
+
+      let popUpNotification = document.querySelector('#popup-notification');
+      popUp.setAttribute('class','popup-animated');
+      popUpNotification.innerHTML = `<p>GOOOLL!!!</p>`;
+
       points+=10;
       score.innerHTML = `${points}`;
 
