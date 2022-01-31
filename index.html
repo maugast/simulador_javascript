@@ -16,8 +16,21 @@
         <h1>Simulador de Penales</h1>
         <h3 id="player-name">Player</h3>
         <p>Elije la dirección de tu disparo y luego pulsa en el botón "PATEAR"</p>
+        <div class="score-record">
+            <span>Score</span><span id="score-box"></span>
+        </div>
     </header>
-    <main>
+    <main id="main-container">
+        <div class="name-form-container">
+            <form class="name-form">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="player-name-input" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">Escribí tu nombre para continuar</div>
+                </div>
+                <button type="submit" id="btn-go" class="btn btn-warning">GO!</button>
+              </form>
+        </div>
         <div class="select-screen-container">
             <div class="select-screen">
                 <h2>Elige a tu jugador</h2>
@@ -26,11 +39,16 @@
                     
                 </div>
 
+<<<<<<< HEAD
                 <table class="tabla-avatars">
                     
                     
                     <!-- Acá se cargan los resultados al filtrar elementos -->
                     
+=======
+                <table class="avatar-table">
+
+>>>>>>> pruebas
                 </table>
 
                 <div id="filter-container">
@@ -42,26 +60,23 @@
             </div>
         </div>
 
-        <section class="container-arco">
-            <table class="tabla-arco">
+        <section class="goal-container">
+            <table class="goal-table">
                 <tbody>
                     <tr>
-                        <!-- ul = Up Left / uc = Up Center / ur = Up Right-->
-                        <td id="ul">1</td>
-                        <td id="uc">2</td>
-                        <td id="ur">3</td>
+                        <td class="goal-direction" >1</td>
+                        <td class="goal-direction" >2</td>
+                        <td class="goal-direction" >3</td>
                     </tr>
                     <tr>
-                        <!-- ml = Middle Left / mc = Middle Center / mr = Middle Right-->
-                        <td id="ml">4</td>
-                        <td id="mc">5</td>
-                        <td id="mr">6</td>
+                        <td class="goal-direction" >4</td>
+                        <td class="goal-direction" >5</td>
+                        <td class="goal-direction" >6</td>
                     </tr>
                     <tr>
-                        <!-- dl = Down Left / dc = Down Center / dr = Down Right-->
-                        <td id="dl">7</td>
-                        <td id="dc">8</td>
-                        <td id="dr">9</td>
+                        <td class="goal-direction" >7</td>
+                        <td class="goal-direction" >8</td>
+                        <td class="goal-direction" >9</td>
                     </tr>
                 </tbody>
             </table>

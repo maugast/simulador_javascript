@@ -1,6 +1,7 @@
 
-//Solicita el nombre del jugador
+//Variables
 
+<<<<<<< HEAD
 let playerName = prompt('!Bienvenido!, ingrese su nombre para continuar');
 console.log(playerName);
 
@@ -18,10 +19,23 @@ const avatar7 = new Avatar(7,"Karim Benzema","Real Madrid","DER", 7,6);
 const avatar8 = new Avatar(8,"Gareth Bale","Real Madrid","IZQ", 6,8);
 const avatar9 = new Avatar(9,"Neymar","Paris SG","DER", 6,7);
 const avatar10 = new Avatar(10,"Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
+=======
+const playerName = document.querySelector('#player-name-input');
+const goButton = document.querySelector('#btn-go');
+const nameForm = document.querySelector('.name-form-container');
+const avatar1 = new Avatar("Lionel Messi","Paris SG","IZQ", 6,9);
+const avatar2 = new Avatar("Cristiano Ronaldo","Manchester Utd","DER", 7,8);
+const avatar3 = new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7);
+const avatar4 = new Avatar("Mohamed Salah","Liverpool","IZQ", 7,6);
+const avatar5 = new Avatar("Kylian Mbappe","Paris SG","DER", 8,7);
+const avatar6 = new Avatar("Ángel Di María","Paris SG","IZQ", 5,8);
+const avatar7 = new Avatar("Karim Benzema","Real Madrid","DER", 7,6);
+const avatar8 = new Avatar("Gareth Bale","Real Madrid","IZQ", 6,8);
+const avatar9 = new Avatar("Neymar","Paris SG","DER", 6,7);
+const avatar10 = new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
+>>>>>>> pruebas
 
-
-//Array de Objetos
-const listaAvatares = [
+const avatarList = [
         avatar1,
         avatar2,
         avatar3,
@@ -35,15 +49,34 @@ const listaAvatares = [
 ];
 
 const selectScreen = document.querySelector('.select-screen-container');
+<<<<<<< HEAD
 const tablaAvatars = document.querySelector('.tabla-avatars');
 const tablaBody = document.getElementById('tabla-body');
 
+=======
+const avatarTable = document.querySelector('.avatar-table');
+const allButton = document.getElementById('filter-all');
+const filterLeft = document.querySelector('#filter-l');
+const filterRight = document.querySelector('#filter-r');
+const avatarShow = document.querySelector('.avatar-show-static');
+const buttonShot = document.getElementById('shot');
 
-//Pinta el nombre ingreado por prompt() en la interfaz
-function playerNameSet(name){
-  while(name == "" || name == null){
-    name = prompt('Por favor ingrese su nombre para continuar');
+const goal = document.querySelector('.goal-table');
+let getDirection;
+let setDirection;
+let score = document.querySelector('#score-box');
+let points = getScore();
+
+//Event Listeners
+>>>>>>> pruebas
+
+goButton.addEventListener('click',(e)=>{
+  e.preventDefault();
+  if(playerName.value == ''){
+    playerName.classList.add('alert-form');
+    console.log('Faltan datos');
   }
+<<<<<<< HEAD
   document.getElementById("player-name").innerHTML = `Player 1: ${name}`;
 
   tablaAvatars.innerHTML = `
@@ -71,134 +104,264 @@ function playerNameSet(name){
               </tr>
           </tbody>
               `;
+=======
+  else{
+    document.querySelector("#player-name").innerHTML = `Player 1: ${playerName.value}`;
+    let main = document.querySelector('#main-container');
+    main.removeChild(nameForm);
+    avatarListSet();
+  }
+});
+>>>>>>> pruebas
 
-}
-
-playerNameSet(playerName);
-
-//Botones para filtrar resultados
-
-//Ver todos
-const allButton = document.getElementById('filter-all');
 
 allButton.addEventListener('click', () =>{
-  tablaAvatars.innerHTML = `
-          <tbody>
-              <tr>
-                  <td class="izq messi">${avatar1.nombre}</td>
-                  <td class="der cronaldo">${avatar2.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der lewandowski">${avatar3.nombre}</td>
-                  <td class="izq salah">${avatar4.nombre}</td>
-              </tr>
- 
-              <tr>
-                  <td class="der mbappe">${avatar5.nombre}</td>
-                  <td class="izq dimaria">${avatar6.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der benzema">${avatar7.nombre}</td>
-                  <td class="izq bale">${avatar8.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der neymar">${avatar9.nombre}</td>
-                  <td class="izq griezmann">${avatar10.nombre}</td>
-              </tr>
-          </tbody>
-              `;
-
+  let tBody = document.querySelector('tbody');
+  avatarTable.removeChild(tBody);
+  avatarListSet();
 });
 
-
-//Filtrar Perfiles Izquierdos
-const filterLeft = document.querySelector('#filter-l');
 
 filterLeft.addEventListener('click', ()=>{
-  let onlyLeft = listaAvatares.filter(avatar => avatar.perfil.includes("IZQ"));
-  
-  tablaAvatars.innerHTML = `
-          <tbody>
-              <tr>
-                  <td class="izq messi">${avatar1.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="izq salah">${avatar4.nombre}</td>
-              </tr>
- 
-              <tr>
-                  <td class="izq dimaria">${avatar6.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="izq bale">${avatar8.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="izq griezmann">${avatar10.nombre}</td>
-              </tr>
-          </tbody>
-              `;  
-  console.log(onlyLeft)
+  let tBody = document.querySelector('tbody');
+  tBody.innerHTML ='';
+  let onlyLeft = avatarList.filter(avatar => avatar.perfil.includes("IZQ"));
+  for(let avatar of onlyLeft){
+    let tRow = document.createElement('tr');
+    let tD = document.createElement('td');
+    tD.innerHTML = avatar.nombre;
+    tBody.appendChild(tRow);
+    tRow.appendChild(tD);
+    console.log(avatar.nombre);
+
+    switch(avatar.nombre){
+      case 'Lionel Messi':
+        tD.setAttribute('class','izq');
+        tD.classList.add('messi');
+        break;
+
+      case 'Mohamed Salah':
+        tD.setAttribute('class','izq');
+        tD.classList.add('salah');
+        break;
+    
+      case 'Ángel Di María':
+        tD.setAttribute('class','izq');
+        tD.classList.add('dimaria');
+        break;
+      
+      case 'Gareth Bale':
+        tD.setAttribute('class','izq');
+        tD.classList.add('bale');
+        break;
+
+      case 'Antoine Griezmann':
+        tD.setAttribute('class','izq');
+        tD.classList.add('griezmann');
+        break;
+      
+      default:
+        console.log('No es posible ese resultado');
+        break;
+    }
+  }
+  avatarTable.appendChild(tBody);
 });
 
-
-//Filtrar Perfiles Derechos
-const filterRight = document.querySelector('#filter-r');
 
 filterRight.addEventListener('click', ()=>{
-  let onlyRight = listaAvatares.filter(avatar => avatar.perfil.includes("DER"));
+  let tBody = document.querySelector('tbody');
+  tBody.innerHTML ='';
+  let onlyRight = avatarList.filter(avatar => avatar.perfil.includes("DER"));
+  for(let avatar of onlyRight){
+    let tRow = document.createElement('tr');
+    let tD = document.createElement('td');
+    tD.innerHTML = avatar.nombre;
+    tBody.appendChild(tRow);
+    tRow.appendChild(tD);
+    console.log(avatar.nombre);
 
-  tablaAvatars.innerHTML = `
-          <tbody>
-              <tr>
-                  <td class="der cronaldo">${avatar2.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der lewandowski">${avatar3.nombre}</td>
-              </tr>
- 
-              <tr>
-                  <td class="der mbappe">${avatar5.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der benzema">${avatar7.nombre}</td>
-              </tr>
-              <tr>
-                  <td class="der neymar">${avatar9.nombre}</td>
-              </tr>
-          </tbody>
-              `;
+    switch(avatar.nombre){
 
-  console.log(onlyRight);
+      case 'Cristiano Ronaldo':
+        tD.setAttribute('class','der');
+        tD.classList.add('cronaldo');
+        break;
+
+      case 'Robert Lewandowski':
+        tD.setAttribute('class','der');
+        tD.classList.add('lewandowski');
+        break;
+    
+      case 'Kylian Mbappe':
+        tD.setAttribute('class','der');
+        tD.classList.add('mbappe');
+        break;
+      
+      case 'Karim Benzema':
+        tD.setAttribute('class','der');
+        tD.classList.add('benzema');
+        break;
+
+      case 'Neymar':
+        tD.setAttribute('class','der');
+        tD.classList.add('neymar');
+        break;
+      
+      default:
+        console.log('No es posible ese resultado');
+        break;
+    }
+  }
+  avatarTable.appendChild(tBody);
 });
 
-tablaAvatars.addEventListener('mouseover', showAvatar);
-tablaAvatars.addEventListener('mouseout', resetAvatar);
-tablaAvatars.addEventListener('click', chooseAvatar);
+avatarTable.addEventListener('mouseover', showAvatar);
+avatarTable.addEventListener('mouseout', resetAvatar);
+avatarTable.addEventListener('click', chooseAvatar);
+
+goal.addEventListener('click',(e)=>{
+  e.preventDefault();
+  setDirection = true;
+  console.log(setDirection);
+
+  getDirection = Math.floor(Math.random() * 10);
+  if(e && getDirection<1){
+    getDirection+=1;
+  }
+});
+
+buttonShot.addEventListener('click', (e)=>{
+  e.preventDefault();
+  if(setDirection == true){
+    console.log(`valor de setDirection: ${setDirection}`);
+    if(getDirection >= 5){
+      getDirection - Math.floor(Math.random() * 10)
+      console.log(getDirection);
+      alert('GOOOOL!!!')
+      points+=10;
+      score.innerHTML = `${points}`;
+
+      setScore(points);
+
+      console.log(points);
+    }
+  }
+  else{
+    alert('Por favor selecciona la dirección del disparo');
+    setDirection = false;
+    console.log(`valor de setDirection: ${setDirection}`);
+  }
+  setDirection = false;
+}
+);
+
+
+
+//Funciones
+
+function avatarListSet(){
+  let tBody = document.createElement('tbody');
+  avatarList.forEach(avatar => {
+	  let tRow = document.createElement('tr');
+	  let tD = document.createElement('td');
+	  tD.innerText = avatar.nombre;
+	  tRow.appendChild(tD);
+	  tBody.appendChild(tRow);
+
+    console.log(avatar.nombre);
+
+    switch(avatar.nombre){
+      case 'Lionel Messi':
+        tD.setAttribute('class','izq');
+        tD.classList.add('messi');
+        break;
+
+      case 'Cristiano Ronaldo':
+        tD.setAttribute('class','der');
+        tD.classList.add('cronaldo');
+        break;
+
+      case 'Robert Lewandowski':
+        tD.setAttribute('class','der');
+        tD.classList.add('lewandowski');
+        break;
+      
+      case 'Mohamed Salah':
+        tD.setAttribute('class','izq');
+        tD.classList.add('salah');
+        break;
+
+      case 'Kylian Mbappe':
+        tD.setAttribute('class','der');
+        tD.classList.add('mbappe');
+        break;
+    
+      case 'Ángel Di María':
+        tD.setAttribute('class','izq');
+        tD.classList.add('dimaria');
+        break;
+      
+      case 'Karim Benzema':
+        tD.setAttribute('class','der');
+        tD.classList.add('benzema');
+        break;
+
+      case 'Gareth Bale':
+        tD.setAttribute('class','izq');
+        tD.classList.add('bale');
+        break;
+
+      case 'Neymar':
+        tD.setAttribute('class','der');
+        tD.classList.add('neymar');
+        break;
+
+      case 'Antoine Griezmann':
+        tD.setAttribute('class','izq');
+        tD.classList.add('griezmann');
+        break;
+      
+      default:
+        console.log('No es posible ese resultado');
+        break;
+    }
+
+});
+
+avatarTable.appendChild(tBody);
+}
+
 
 function chooseAvatar(e){
   e.preventDefault();
   
   let avatarName = e.target.innerText;
   
-  for(let jugador of listaAvatares){
-    let avatarData = jugador.nombre;
+  for(let avatar of avatarList){
+    let avatarData = avatar.nombre;
     if(avatarName == avatarData){
       console.log(`${avatarName} - ${avatarData}`);
 
-      let avatarPlaceholder = jugador.nombreYClub()
+      let avatarPlaceholder = avatar.nombreYClub()
       document.getElementById("avatar-name").innerHTML = avatarPlaceholder;
 
       break;
     }
   }
   selectScreen.remove();
+  setScore(points);
+  score.innerHTML = `${points}`;
 }
 
+<<<<<<< HEAD
 let avatarShow = document.querySelector('.avatar-show-static');
 
 
 //Asignar animaciones a los avatares
 
+=======
+>>>>>>> pruebas
 function showAvatar(e){
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
@@ -246,7 +409,11 @@ function resetAvatar(e){
   }
 }
 
+function setScore(pts){
+  localStorage.setItem('score', pts);
+}
 
+<<<<<<< HEAD
 //Elije la direccion del disparo
 
 let ul = document.getElementById('ul');
@@ -348,20 +515,11 @@ dr.addEventListener('click', () =>{
 
 //Dispara
 const buttonShot = document.getElementById('shot');
+=======
+function getScore(){
+  let record = localStorage.getItem('score');
+  record = Number(record);
+  return record;
+>>>>>>> pruebas
 
-buttonShot.addEventListener('click', ()=>{
-  if(getDirection){
-    if(getDirection >= 5){
-      getDirection - Math.floor(Math.random() * 10)
-      console.log(getDirection);
-      alert('GOOOOL!!!')
-    }
-    else(
-      alert('ATAJÓ EL ARQUERO!!')
-    );
-  }
-  else{
-    alert('Por favor selecciona la dirección del disparo');
-  }
-  
-} );
+}

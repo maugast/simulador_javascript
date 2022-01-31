@@ -5,3 +5,19 @@
     background-repeat: no-repeat;
     animation: animateAvatar .5s ease-in-out;
 }
+
+@mixin form{
+    width: 60%;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    position: absolute;
+    top: -140px;
+    left: 20%;
+}
+
+@mixin formText{
+    text-align: center;
+    margin: 10rem auto;
+    width: 50%;
+}

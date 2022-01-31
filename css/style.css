@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gemunu+Libre:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gemunu+Libre:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gemunu+Libre:wght@200&display=swap");
 header {
   padding: 2em;
   display: flex;
@@ -22,12 +24,30 @@ header p {
   padding-top: 20px;
   font-size: 1.4em;
 }
+header .score-record {
+  color: #ebd517;
+  align-self: center;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+header .score-record #score-box {
+  display: inline-block;
+  color: black;
+  background-color: #ebd517;
+  min-width: 5rem;
+  height: 1.6rem;
+  margin-left: 0.4rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
 
-.container-arco {
+.goal-container {
   display: flex;
   justify-content: center;
+  margin-top: -10vh;
 }
-.container-arco .tabla-arco {
+.goal-container .goal-table {
   color: #fff;
   font-family: "Gemunu Libre", sans-serif;
   font-size: 1.3em;
@@ -42,11 +62,11 @@ header p {
   justify-content: space-around;
   border-collapse: collapse;
 }
-.container-arco .tabla-arco tbody tr td {
+.goal-container .goal-table tbody tr td {
   border: 1px dotted #fff;
   padding: 20px 70px;
 }
-.container-arco .tabla-arco tbody tr td:hover {
+.goal-container .goal-table tbody tr td:hover {
   color: black;
   background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
@@ -71,6 +91,7 @@ header p {
   top: -140px;
   left: 20%;
   animation: selectScreenFadeIn 1s ease-out 1s;
+  z-index: 0;
   /*CLASES PARA ANIMAR AVATARES*/
   /* FIN CLASES PARA ANIMAR AVATARES*/
 }
@@ -164,21 +185,21 @@ header p {
   animation: animateAvatar 0.5s ease-in-out;
   background-image: url(../images/salah.png);
 }
-.select-screen-container .tabla-avatars {
-  margin: 3vh 3vw;
+.select-screen-container .avatar-table {
+  margin: -2vh 3vw;
   min-height: 55vh;
   width: 50%;
   font-size: 0.8rem;
   grid-area: right-side;
 }
-.select-screen-container .tabla-avatars tbody tr td {
+.select-screen-container .avatar-table tbody tr td {
   text-align: end;
   padding: 4px 5px;
   font-family: "Gemunu Libre", sans-serif;
   font-size: 1.5em;
   color: #fff;
 }
-.select-screen-container .tabla-avatars tbody tr td:hover {
+.select-screen-container .avatar-table tbody tr td:hover {
   color: black;
   background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
@@ -217,6 +238,39 @@ header p {
   100% {
     opacity: 1;
     transform: translateX(0px);
+  }
+}
+.name-form-container {
+  width: 60%;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  position: absolute;
+  top: -140px;
+  left: 20%;
+  animation: formScreenFadeIn 1s ease-out 1s;
+  z-index: 1;
+}
+.name-form-container .name-form {
+  font-size: 1.5rem;
+  color: #ebd517;
+  text-align: center;
+  margin: 10rem auto;
+  width: 50%;
+}
+.name-form-container .name-form .alert-form {
+  border: 1px solid red;
+  box-shadow: 1px 1px 20px red inset;
+}
+
+@keyframes formScreenFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 * {
