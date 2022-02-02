@@ -37,4 +37,23 @@ main{
             border-radius: 15px;
         }
     }
+    .match-stats-container{
+        display: flex;
+        justify-content: center;
+
+        #match-stats-table{
+            color: #fff;
+            font-family: 'Gemunu Libre', sans-serif;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding:0px;
+            border: 1px solid #fff;
+            tr{
+                td{
+                    border: 1px dotted #fff;
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
 }
