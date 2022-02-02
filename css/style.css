@@ -389,7 +389,7 @@ main .match-stats-container #match-stats-table {
 }
 main .match-stats-container #match-stats-table tr td {
   border: 1px dotted #fff;
-  padding: 5px 6px;
+  padding: 5px 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

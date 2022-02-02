@@ -41,8 +41,11 @@ let getDirection;
 let setDirection;
 let score = document.querySelector('#score-box');
 let points = getScore();
+let goalCount=0;
+let missCount=0;
 let popUp = document.querySelector('.popup');
-
+let goalStats = document.querySelector('#stats-box-goals');
+let missedStats = document.querySelector('#stats-box-missed');
 
 //Event Listeners
 
@@ -183,7 +186,6 @@ goal.addEventListener('click',(e)=>{
 
 buttonShot.addEventListener('click', (e)=>{
   e.preventDefault();
-
   if(setDirection == true){
     console.log(`valor de setDirection: ${setDirection}`);
     if(getDirection >= 5){
@@ -196,10 +198,10 @@ buttonShot.addEventListener('click', (e)=>{
                                         <span class="close-button">x</span>
                                         <p>GOOOLL!!!</p>
                                       </div>`;
-
+      
+      goalCount+=1;
       points+=10;
       score.innerHTML = `${points}`;
-
       setScore(points);
 
       let closeButton = document.querySelector('.close-button');
@@ -219,13 +221,18 @@ buttonShot.addEventListener('click', (e)=>{
                                         <p>ATAJÓ EL ARQUERO!!</p>
                                       </div>`;
 
+      missCount+=1; 
+
       let closeButton = document.querySelector('.close-button');
       closeButton.addEventListener('click',()=>{
       popUp.removeAttribute('class','popup-animated');
       popUp.setAttribute('class','popup');
-                                
+      
       });   
     }
+    setStats(goalCount,missCount);
+    
+    getStats(setStats(goalCount,missCount));
   }
   else{
     let popUpNotification = document.querySelector('#popup-notification');
@@ -246,7 +253,10 @@ buttonShot.addEventListener('click', (e)=>{
     console.log(`valor de setDirection: ${setDirection}`);
   }
   setDirection = false;
+
+
 }
+
 );
 
 
@@ -411,4 +421,20 @@ function getScore(){
   record = Number(record);
   return record;
 
+}
+
+function setStats(goal, miss){
+  let stats = {goals: goal, missed: miss};
+  let statsJSON = JSON.stringify(stats);
+  sessionStorage.setItem("stats",statsJSON);
+ 
+  return statsJSON;
+  
+}
+
+function getStats(statStorage){
+  
+  let statObject = JSON.parse(statStorage);
+  goalStats.innerHTML = `<p>${statObject.goals}</p>`;
+  missedStats.innerHTML = `<p>${statObject.missed}</p>`;
 }
