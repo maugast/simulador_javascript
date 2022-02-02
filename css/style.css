@@ -375,5 +375,21 @@ main #shot-container #shot {
   color: black;
   border-radius: 15px;
 }
+main .match-stats-container {
+  display: flex;
+  justify-content: center;
+}
+main .match-stats-container #match-stats-table {
+  color: #fff;
+  font-family: "Gemunu Libre", sans-serif;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0px;
+  border: 1px solid #fff;
+}
+main .match-stats-container #match-stats-table tr td {
+  border: 1px dotted #fff;
+  padding: 5px 6px;
+}
 
 /*# sourceMappingURL=style.css.map */

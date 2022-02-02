@@ -17,7 +17,7 @@
         <h3 id="player-name">Player</h3>
         <p>Elije la dirección de tu disparo y luego pulsa en el botón "PATEAR"</p>
         <div class="score-record">
-            <span>Score</span><span id="score-box"></span><span id="reset-score-button"><p>RESET</p></span>
+            <span>Total Score</span><span id="score-box"></span><span id="reset-score-button"><p>RESET</p></span>
         </div>
     </header>
     <main id="main-container">
@@ -80,7 +80,18 @@
         <div class="avatar-container">
             <h3 id="avatar-name">Avatar</h3>
         </div>
-
+        <div class="match-stats-container">
+            <table id="match-stats-table">
+                <tbody>
+                    <tr>
+                        <td>Aciertos</td>
+                        <td>0</td>
+                        <td>Errados</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div id="shot-container">
             <button id="shot"><span>PATEAR<span></button>
         </div>
