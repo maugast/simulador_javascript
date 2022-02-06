@@ -4,29 +4,18 @@
 const playerName = document.querySelector('#player-name-input');
 const goButton = document.querySelector('#btn-go');
 const nameForm = document.querySelector('.name-form-container');
-const avatar1 = new Avatar("Lionel Messi","Paris SG","IZQ", 6,9);
-const avatar2 = new Avatar("Cristiano Ronaldo","Manchester Utd","DER", 7,8);
-const avatar3 = new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7);
-const avatar4 = new Avatar("Mohamed Salah","Liverpool","IZQ", 7,6);
-const avatar5 = new Avatar("Kylian Mbappe","Paris SG","DER", 8,7);
-const avatar6 = new Avatar("Ángel Di María","Paris SG","IZQ", 5,8);
-const avatar7 = new Avatar("Karim Benzema","Real Madrid","DER", 7,6);
-const avatar8 = new Avatar("Gareth Bale","Real Madrid","IZQ", 6,8);
-const avatar9 = new Avatar("Neymar","Paris SG","DER", 6,7);
-const avatar10 = new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5);
 
-const avatarList = [
-        avatar1,
-        avatar2,
-        avatar3,
-        avatar4,
-        avatar5,
-        avatar6,
-        avatar7,
-        avatar8,
-        avatar9,
-        avatar10
-];
+const avatarList = [];
+avatarList.push(new Avatar("Lionel Messi","Paris SG","IZQ", 6,9));
+avatarList.push(new Avatar("Cristiano Ronaldo","Manchester Utd","DER", 7,8));
+avatarList.push(new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7));
+avatarList.push(new Avatar("Mohamed Salah","Liverpool","IZQ", 7,6));
+avatarList.push(new Avatar("Kylian Mbappe","Paris SG","DER", 8,7));
+avatarList.push(new Avatar("Ángel Di María","Paris SG","IZQ", 5,8));
+avatarList.push(new Avatar("Karim Benzema","Real Madrid","DER", 7,6));
+avatarList.push(new Avatar("Gareth Bale","Real Madrid","IZQ", 6,8));
+avatarList.push(new Avatar("Neymar","Paris SG","DER", 6,7));
+avatarList.push(new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5));
 
 const selectScreen = document.querySelector('.select-screen-container');
 const avatarTable = document.querySelector('.avatar-table');
@@ -196,7 +185,7 @@ buttonShot.addEventListener('click', (e)=>{
       popUp.setAttribute('class','popup-animated');
       popUpNotification.innerHTML = ` <div style="margin-top: -100px">
                                         <span class="close-button">x</span>
-                                        <p>GOOOLL!!!</p>
+                                        <p>GOOOL!!!</p>
                                       </div>`;
       
       goalCount+=1;
@@ -230,9 +219,9 @@ buttonShot.addEventListener('click', (e)=>{
       
       });   
     }
-    setStats(goalCount,missCount);
+    setStats(goalCount,missCount); //La función recibe los argumentos goalCount y missCount que ayudan a generar un objeto que luego será convertido y retornado como JSON
     
-    getStats(setStats(goalCount,missCount));
+    getStats(setStats(goalCount,missCount)); //Esta función recibe el objeto JSON que retornó setStats y luego de parsearlo a objeto Javascript podemos acceder a sus datos internos y mostrarlos en pantalla.
   }
   else{
     let popUpNotification = document.querySelector('#popup-notification');
@@ -369,7 +358,7 @@ function showAvatar(e){
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
     console.log('izq o der');
-
+    
     if(e.target.classList.contains('messi')){
       avatarShow.setAttribute('class','avatar-show-animated-messi');
     }
@@ -423,18 +412,21 @@ function getScore(){
 
 }
 
+
+//Guardo un objeto en session sotorage con el método stringify y la función retorna un objeto JASON
 function setStats(goal, miss){
-  let stats = {goals: goal, missed: miss};
-  let statsJSON = JSON.stringify(stats);
-  sessionStorage.setItem("stats",statsJSON);
+  let stats = {goals: goal, missed: miss}; //Creo un objeto con las keys "goals" y "missed", y los valores los obtengo con los parámetros "goal" y "miss"
+  let statsJSON = JSON.stringify(stats); // El objeto anteriormente creado es convertido a objeto legible como JSON con el método stringify
+  sessionStorage.setItem("stats",statsJSON); //El objeto ahora legible como JSON se almacena en sessionStorage
  
-  return statsJSON;
+  return statsJSON; //La función devuelve el objeto JSON
   
 }
 
-function getStats(statStorage){
+//Obtengo el objeto JSON guardado previamente con la función setStats() y lo utilizo como parámetro de getStats
+function getStats(statStorage){ //El parámetro se obtiene de lo que retorna la función setStats
   
-  let statObject = JSON.parse(statStorage);
-  goalStats.innerHTML = `<p>${statObject.goals}</p>`;
-  missedStats.innerHTML = `<p>${statObject.missed}</p>`;
+  let statObject = JSON.parse(statStorage); //Se parsea el objeto JSON para poder tratarlo como objeto de Javascript
+  goalStats.innerHTML = `<p>${statObject.goals}</p>`; //Se acceden a los datos del objeto
+  missedStats.innerHTML = `<p>${statObject.missed}</p>`; //Se acceden a los datos del objeto
 }
