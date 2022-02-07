@@ -11,9 +11,16 @@ header{
         border-bottom: 2px solid map-get($colors, primario);
         align-self: center;
     }
-    h3{
-        align-self: center;
+    #player-name{
+        font-size: 1.5rem;
+        color: map-get($colors, primario);
+        text-align: center;
+        h3{
+            color: #fff;
+            align-self: center;
+        }
     }
+    
     p{
         align-self: center;
         font-family: 'Gemunu Libre', sans-serif;

@@ -2,7 +2,6 @@
 //Variables
 
 const playerName = document.querySelector('#player-name-input');
-const goButton = document.querySelector('#btn-go');
 const nameForm = document.querySelector('.name-form-container');
 
 const avatarList = [];
@@ -36,20 +35,24 @@ let popUp = document.querySelector('.popup');
 let goalStats = document.querySelector('#stats-box-goals');
 let missedStats = document.querySelector('#stats-box-missed');
 
+
+
 //Event Listeners
 
-goButton.addEventListener('click',(e)=>{
-  e.preventDefault();
-  if(playerName.value == ''){
-    playerName.classList.add('alert-form');
-    console.log('Faltan datos');
-  }
-  else{
-    document.querySelector("#player-name").innerHTML = `Player 1: ${playerName.value}`;
-    let main = document.querySelector('#main-container');
-    main.removeChild(nameForm);
-    avatarListSet();
-  }
+$('#btn-go').click((e)=>{   //Utilizamos selector y método de jQuery
+
+	e.preventDefault();
+  	if(playerName.value == ''){
+    	playerName.classList.add('alert-form');
+    	console.log('Faltan datos');
+  	}
+  	else{
+    	$("#player-name").append(`<h3>${playerName.value}</h3>`); //Utilizamos selector y método de jQuery
+    	let main = document.querySelector('#main-container');
+    	main.removeChild(nameForm);
+    	avatarListSet();
+  	}
+
 });
 
 
@@ -358,7 +361,7 @@ function showAvatar(e){
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
     console.log('izq o der');
-    
+
     if(e.target.classList.contains('messi')){
       avatarShow.setAttribute('class','avatar-show-animated-messi');
     }
