@@ -16,6 +16,18 @@ avatarList.push(new Avatar("Gareth Bale","Real Madrid","IZQ", 6,8));
 avatarList.push(new Avatar("Neymar","Paris SG","DER", 6,7));
 avatarList.push(new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5));
 
+const avatarShowAnimation = ['avatar-show-animated-messi',
+                              'avatar-show-animated-cronaldo',
+                              'avatar-show-animated-lewandowski',
+                              'avatar-show-animated-salah',
+                              'avatar-show-animated-mbappe',
+                              'avatar-show-animated-dimaria',
+                              'avatar-show-animated-benzema',
+                              'avatar-show-animated-bale',
+                              'avatar-show-animated-neymar',
+                              'avatar-show-animated-griezmann'
+                              ];
+
 const selectScreen = document.querySelector('.select-screen-container');
 const avatarTable = document.querySelector('.avatar-table');
 const allButton = document.getElementById('filter-all');
