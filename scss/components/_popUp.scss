@@ -10,13 +10,17 @@
     display: flex;
     width: 60%;
     height: 250px;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: -4px 7px 29px 4px rgba(0,0,0,1);
+    -webkit-box-shadow: -4px 7px 29px 4px rgba(0,0,0,1);
+    -moz-box-shadow: -4px 7px 29px 4px rgba(0,0,0,1);
     border-radius: 15px;
     position: absolute;
     top: 40px;
     left: 20%;
     z-index: 2;
-    animation: popUpFadeIn .3s ease-in-out;
+    backface-visibility: hidden;
+    animation: popUpFadeIn 1s cubic-bezier(.52,-0.01,.02,.98);
 
     #popup-notification{
         font-size: 2.5rem;
@@ -39,27 +43,14 @@
         opacity: 0;
         transform: scaleY(0);
     }
-    90%{
+    20%{
         opacity: 1;
+        transform: scaleY(2);
+    }
+    30%{
+        transform: scaleY(.3);
+    }
+    40%{
         transform: scaleY(1);
     }
-    100%{
-        opacity: 0;
-        transform: scaleY(0);
-    }
-
-}
-
-
-
-@keyframes popUpNotificationSkew {
-    0%{
-        opacity: 0;
-        transform: skew(-26deg, 0deg);
-    }
-    100%{
-        opacity: 1;
-        transform: skew(0deg, 0deg);
-    }
-    
 }

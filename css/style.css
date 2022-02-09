@@ -17,7 +17,13 @@ header h1 {
   border-bottom: 2px solid #ebd517;
   align-self: center;
 }
-header h3 {
+header #player-name {
+  font-size: 1.5rem;
+  color: #ebd517;
+  text-align: center;
+}
+header #player-name h3 {
+  color: #fff;
   align-self: center;
 }
 header p {
@@ -70,7 +76,7 @@ header .score-record #reset-score-button p {
   border-right: 7px solid white;
   background-color: rgba(255, 255, 255, 0.2);
   height: 224px;
-  margin: 50px auto;
+  margin: 45px auto;
   padding: 0;
   display: flex;
   justify-content: space-around;
@@ -295,13 +301,17 @@ header .score-record #reset-score-button p {
   display: flex;
   width: 60%;
   height: 250px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: -4px 7px 29px 4px black;
+  -webkit-box-shadow: -4px 7px 29px 4px black;
+  -moz-box-shadow: -4px 7px 29px 4px black;
   border-radius: 15px;
   position: absolute;
   top: 40px;
   left: 20%;
   z-index: 2;
-  animation: popUpFadeIn 0.3s ease-in-out;
+  backface-visibility: hidden;
+  animation: popUpFadeIn 1s cubic-bezier(0.52, -0.01, 0.02, 0.98);
 }
 .popup-animated #popup-notification {
   font-size: 2.5rem;
@@ -325,23 +335,15 @@ header .score-record #reset-score-button p {
     opacity: 0;
     transform: scaleY(0);
   }
-  90% {
+  20% {
     opacity: 1;
+    transform: scaleY(2);
+  }
+  30% {
+    transform: scaleY(0.3);
+  }
+  40% {
     transform: scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-}
-@keyframes popUpNotificationSkew {
-  0% {
-    opacity: 0;
-    transform: skew(-26deg, 0deg);
-  }
-  100% {
-    opacity: 1;
-    transform: skew(0deg, 0deg);
   }
 }
 * {
