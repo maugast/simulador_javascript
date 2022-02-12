@@ -7,25 +7,26 @@ const nameForm = document.querySelector('.name-form-container');
 const avatarList = [];
 avatarList.push(new Avatar("Lionel Messi","Paris SG","IZQ", 6,9));
 avatarList.push(new Avatar("Cristiano Ronaldo","Manchester Utd","DER", 7,8));
-avatarList.push(new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7));
 avatarList.push(new Avatar("Mohamed Salah","Liverpool","IZQ", 7,6));
-avatarList.push(new Avatar("Kylian Mbappe","Paris SG","DER", 8,7));
+avatarList.push(new Avatar("Robert Lewandowski","Bayern Munich","DER", 7,7));
 avatarList.push(new Avatar("Ángel Di María","Paris SG","IZQ", 5,8));
-avatarList.push(new Avatar("Karim Benzema","Real Madrid","DER", 7,6));
+avatarList.push(new Avatar("Kylian Mbappe","Paris SG","DER", 8,7));
 avatarList.push(new Avatar("Gareth Bale","Real Madrid","IZQ", 6,8));
-avatarList.push(new Avatar("Neymar","Paris SG","DER", 6,7));
+avatarList.push(new Avatar("Karim Benzema","Real Madrid","DER", 7,6));
 avatarList.push(new Avatar("Antoine Griezmann","Atlético de Madrid","IZQ", 7,5));
+avatarList.push(new Avatar("Neymar","Paris SG","DER", 6,7));
+
 
 const avatarShowAnimation = ['avatar-show-animated-messi',
                               'avatar-show-animated-cronaldo',
-                              'avatar-show-animated-lewandowski',
                               'avatar-show-animated-salah',
-                              'avatar-show-animated-mbappe',
+                              'avatar-show-animated-lewandowski',
                               'avatar-show-animated-dimaria',
-                              'avatar-show-animated-benzema',
+                              'avatar-show-animated-mbappe',
                               'avatar-show-animated-bale',
-                              'avatar-show-animated-neymar',
-                              'avatar-show-animated-griezmann'
+                              'avatar-show-animated-benzema',
+                              'avatar-show-animated-griezmann',
+                              'avatar-show-animated-neymar'
                               ];
 
 const selectScreen = document.querySelector('.select-screen-container');
@@ -90,26 +91,31 @@ filterLeft.addEventListener('click', ()=>{
     switch(avatar.nombre){
       case 'Lionel Messi':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', 0);
         tD.classList.add('messi');
         break;
 
       case 'Mohamed Salah':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', 2);
         tD.classList.add('salah');
         break;
     
       case 'Ángel Di María':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', 4);
         tD.classList.add('dimaria');
         break;
       
       case 'Gareth Bale':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', 6);
         tD.classList.add('bale');
         break;
 
       case 'Antoine Griezmann':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', 8);
         tD.classList.add('griezmann');
         break;
       
@@ -120,6 +126,8 @@ filterLeft.addEventListener('click', ()=>{
   }
   avatarTable.appendChild(tBody);
 });
+
+
 
 
 filterRight.addEventListener('click', ()=>{
@@ -138,26 +146,31 @@ filterRight.addEventListener('click', ()=>{
 
       case 'Cristiano Ronaldo':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', 1);
         tD.classList.add('cronaldo');
         break;
 
       case 'Robert Lewandowski':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', 3);
         tD.classList.add('lewandowski');
         break;
     
       case 'Kylian Mbappe':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', 5);
         tD.classList.add('mbappe');
         break;
       
       case 'Karim Benzema':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', 7);
         tD.classList.add('benzema');
         break;
 
       case 'Neymar':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', 9);
         tD.classList.add('neymar');
         break;
       
@@ -259,9 +272,7 @@ buttonShot.addEventListener('click', (e)=>{
   setDirection = false;
 
 
-}
-
-);
+});
 
 
 
@@ -289,51 +300,61 @@ function avatarListSet(){
     switch(avatar.nombre){
       case 'Lionel Messi':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('messi');
         break;
 
       case 'Cristiano Ronaldo':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('cronaldo');
         break;
 
       case 'Robert Lewandowski':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('lewandowski');
         break;
       
       case 'Mohamed Salah':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('salah');
         break;
 
       case 'Kylian Mbappe':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('mbappe');
         break;
     
       case 'Ángel Di María':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('dimaria');
         break;
       
       case 'Karim Benzema':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('benzema');
         break;
 
       case 'Gareth Bale':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('bale');
         break;
 
       case 'Neymar':
         tD.setAttribute('class','der');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('neymar');
         break;
 
       case 'Antoine Griezmann':
         tD.setAttribute('class','izq');
+        tD.setAttribute('id', `${avatarList.indexOf(avatar)}`);
         tD.classList.add('griezmann');
         break;
       
@@ -369,40 +390,17 @@ function chooseAvatar(e){
   score.innerHTML = `${points}`;
 }
 
+
+
 function showAvatar(e){
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
-    console.log('izq o der');
 
-    if(e.target.classList.contains('messi')){
-      avatarShow.setAttribute('class','avatar-show-animated-messi');
-    }
-    else if(e.target.classList.contains('benzema')){
-      avatarShow.setAttribute('class','avatar-show-animated-benzema');
-    }
-    else if(e.target.classList.contains('cronaldo')){
-      avatarShow.setAttribute('class','avatar-show-animated-cronaldo');
-    }
-    else if(e.target.classList.contains('bale')){
-      avatarShow.setAttribute('class','avatar-show-animated-bale');
-    }
-    else if(e.target.classList.contains('dimaria')){
-      avatarShow.setAttribute('class','avatar-show-animated-dimaria');
-    }
-    else if(e.target.classList.contains('griezmann')){
-      avatarShow.setAttribute('class','avatar-show-animated-griezmann');
-    }
-    else if(e.target.classList.contains('lewandowski')){
-      avatarShow.setAttribute('class','avatar-show-animated-lewandowski');
-    }
-    else if(e.target.classList.contains('mbappe')){
-      avatarShow.setAttribute('class','avatar-show-animated-mbappe');
-    }
-    else if(e.target.classList.contains('neymar')){
-      avatarShow.setAttribute('class','avatar-show-animated-neymar');
-    }
-    else if(e.target.classList.contains('salah')){
-      avatarShow.setAttribute('class','avatar-show-animated-salah');
+    for(let animation of avatarShowAnimation){
+      if(e.target.id == avatarShowAnimation.indexOf(animation)){
+        avatarShow.setAttribute('class', `${avatarShowAnimation[e.target.id]}`);
+        break;
+      }
     }
   }
 }
