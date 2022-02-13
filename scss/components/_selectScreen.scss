@@ -6,8 +6,8 @@
 
 .select-screen-container{
     @include form;
-    animation: selectScreenFadeIn 1s ease-out 1s;
-    z-index: 0;
+    //animation: selectScreenFadeIn 1s ease-out 1s;
+    z-index: 2;
     .select-screen{
         text-align: center;
         display: grid;

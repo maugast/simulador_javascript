@@ -47,14 +47,49 @@ let missCount=0;
 let popUp = document.querySelector('.popup');
 let goalStats = document.querySelector('#stats-box-goals');
 let missedStats = document.querySelector('#stats-box-missed');
-
+const URLGET = "https://api.imgflip.com/get_memes"
 
 
 //Event Listeners
+$(document).ready(()=>{
+  $('header').css({
+    "filter": "blur(4px)",
+  });
+
+  $('.goal-container').css({
+    "filter": "blur(4px)",
+  });
+
+  $('.match-stats-container').css({
+    "filter": "blur(4px)",
+  });
+
+  $('.avatar-container').css({
+    "filter": "blur(4px)",
+  });
+
+  $('#shot-container').css({
+    "filter": "blur(4px)",
+  });
+
+  $('body').prepend(`<div id="blurred-dark-overlay"></div>`);
+  $('#blurred-dark-overlay').css({
+    "position":"absolute",
+    "height":"750px",
+    "width":"100%",
+    "background-color": "rgba(0, 0, 0, 0.6)",
+    "z-index":"1"
+  });
+  $(".select-screen-container").hide();
+  $(".name-form-container").hide();
+  $(".name-form-container").fadeIn(1000);
+
+});
 
 $('#btn-go').click((e)=>{   //Utilizamos selector y método de jQuery
 
 	e.preventDefault();
+
   	if(playerName.value == ''){
     	playerName.classList.add('alert-form');
     	console.log('Faltan datos');
@@ -64,6 +99,7 @@ $('#btn-go').click((e)=>{   //Utilizamos selector y método de jQuery
     	let main = document.querySelector('#main-container');
     	main.removeChild(nameForm);
     	avatarListSet();
+      $(".select-screen-container").fadeIn(1000);
   	}
 
 });
@@ -214,8 +250,27 @@ buttonShot.addEventListener('click', (e)=>{
       popUpNotification.innerHTML = ` <div style="margin-top: -100px">
                                         <span class="close-button">x</span>
                                         <p>GOOOL!!!</p>
+                                        <div id="meme-box" class="rounded-circle"></div>
                                       </div>`;
       
+          $.get(URLGET,(respuesta, estado) => {
+            if(estado === "success"){
+              let misDatos = respuesta;
+              let random = Math.floor(Math.random() * 100);
+              $('#meme-box').css({
+                "position":"absolute",
+                "left":"40%",
+                "width":"100px",
+                "height":"100px",
+                "background-image":`url('${misDatos.data.memes[random].url}')`,
+                "background-size":"cover",
+                "background-repeat":"no-repeat",
+                "background-position":"center"
+              });
+                                          
+            }
+      });
+                                                  
       goalCount+=1;
       points+=10;
       score.innerHTML = `${points}`;
@@ -236,7 +291,26 @@ buttonShot.addEventListener('click', (e)=>{
       popUpNotification.innerHTML = ` <div style="margin-top: -100px">
                                         <span class="close-button">x</span>
                                         <p>ATAJÓ EL ARQUERO!!</p>
+                                        <div id="meme-box" class="rounded-circle"></div>
                                       </div>`;
+
+          $.get(URLGET,(respuesta, estado) => {
+            if(estado === "success"){
+              let misDatos = respuesta;
+              let random = Math.floor(Math.random() * 100);
+              $('#meme-box').css({
+                "position":"absolute",
+                "left":"40%",
+                "width":"100px",
+                "height":"100px",
+                "background-image":`url('${misDatos.data.memes[random].url}')`,
+                "background-size":"cover",
+                "background-repeat":"no-repeat",
+                "background-position":"center"
+              });
+                                                                      
+            }
+      });
 
       missCount+=1; 
 
@@ -385,7 +459,29 @@ function chooseAvatar(e){
       break;
     }
   }
-  selectScreen.remove();
+    selectScreen.remove();
+    $('#blurred-dark-overlay').fadeOut(2000);
+
+    $('header').css({
+      "filter": "blur(0px)",
+    });
+
+    $('.goal-container').css({
+      "filter": "blur(0px)",
+    });
+
+    $('.match-stats-container').css({
+      "filter": "blur(0px)",
+    });
+
+    $('.avatar-container').css({
+      "filter": "blur(0px)",
+    });
+
+    $('#shot-container').css({
+      "filter": "blur(0px)",
+    });
+
   setScore(points);
   score.innerHTML = `${points}`;
 }
