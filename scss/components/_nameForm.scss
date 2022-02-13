@@ -5,8 +5,8 @@
 
 .name-form-container{
     @include form;
-    animation: formScreenFadeIn 1s ease-out 1s;
-    z-index: 1;
+    //animation: formScreenFadeIn 1s ease-out 1s;
+    z-index: 3;
     .name-form{
         font-size: 1.5rem;
         color: map-get($colors, primario);

@@ -51,10 +51,20 @@ let missedStats = document.querySelector('#stats-box-missed');
 
 
 //Event Listeners
+$(document).ready(()=>{
+  
+  $(".select-screen-container").hide();
+  $(".name-form-container").hide();
+  $(".name-form-container").fadeIn(1000);
+
+});
 
 $('#btn-go').click((e)=>{   //Utilizamos selector y método de jQuery
 
 	e.preventDefault();
+
+  $(".select-screen-container").fadeIn(1000);
+
   	if(playerName.value == ''){
     	playerName.classList.add('alert-form');
     	console.log('Faltan datos');
