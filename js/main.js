@@ -47,7 +47,7 @@ let missCount=0;
 let popUp = document.querySelector('.popup');
 let goalStats = document.querySelector('#stats-box-goals');
 let missedStats = document.querySelector('#stats-box-missed');
-const URLGET = "https://api.imgflip.com/get_memes"
+const URLGET = "https://api.imgflip.com/get_memes"  //API de memes para hacer consumir con AJAX
 
 
 //Event Listeners
@@ -80,13 +80,13 @@ $(document).ready(()=>{
     "background-color": "rgba(0, 0, 0, 0.6)",
     "z-index":"1"
   });
-  $(".select-screen-container").hide();
+  $(".select-screen-container").hide(); //Animaciones encadenadas de jQuery
   $(".name-form-container").hide();
   $(".name-form-container").fadeIn(1000);
 
 });
 
-$('#btn-go').click((e)=>{   //Utilizamos selector y método de jQuery
+$('#btn-go').click((e)=>{   
 
 	e.preventDefault();
 
@@ -95,11 +95,11 @@ $('#btn-go').click((e)=>{   //Utilizamos selector y método de jQuery
     	console.log('Faltan datos');
   	}
   	else{
-    	$("#player-name").append(`<h3>${playerName.value}</h3>`); //Utilizamos selector y método de jQuery
+    	$("#player-name").append(`<h3>${playerName.value}</h3>`);
     	let main = document.querySelector('#main-container');
     	main.removeChild(nameForm);
     	avatarListSet();
-      $(".select-screen-container").fadeIn(1000);
+      $(".select-screen-container").fadeIn(1000);  //Animación con jQuery
   	}
 
 });
@@ -253,7 +253,7 @@ buttonShot.addEventListener('click', (e)=>{
                                         <div id="meme-box" class="rounded-circle"></div>
                                       </div>`;
       
-          $.get(URLGET,(respuesta, estado) => {
+          $.get(URLGET,(respuesta, estado) => { //Llamada AJAX
             if(estado === "success"){
               let misDatos = respuesta;
               let random = Math.floor(Math.random() * 100);
@@ -294,7 +294,7 @@ buttonShot.addEventListener('click', (e)=>{
                                         <div id="meme-box" class="rounded-circle"></div>
                                       </div>`;
 
-          $.get(URLGET,(respuesta, estado) => {
+          $.get(URLGET,(respuesta, estado) => {  //Llamada AJAX
             if(estado === "success"){
               let misDatos = respuesta;
               let random = Math.floor(Math.random() * 100);
@@ -460,7 +460,7 @@ function chooseAvatar(e){
     }
   }
     selectScreen.remove();
-    $('#blurred-dark-overlay').fadeOut(2000);
+    $('#blurred-dark-overlay').fadeOut(2000); //Animación con jQuery
 
     $('header').css({
       "filter": "blur(0px)",
@@ -488,7 +488,7 @@ function chooseAvatar(e){
 
 
 
-function showAvatar(e){
+function showAvatar(e){  //Se corrigió esta función para automatizar la asignación de animaciones a cada elemento seleccionado
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
 
