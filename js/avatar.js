@@ -10,9 +10,5 @@ class Avatar{
     nombreYClub(){
         return `${this.nombre} - ${this.club}`;
     }
-    //Método a utilizar en próximos desafíos
-    disparoExtraPotente(boost){
-        this.potencia += boost;
-        this.precision -= boost;
-    }
 }
+

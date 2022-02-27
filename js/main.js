@@ -49,7 +49,6 @@ let goalStats = document.querySelector('#stats-box-goals');
 let missedStats = document.querySelector('#stats-box-missed');
 const URLGET = "https://api.imgflip.com/get_memes"  //API de memes para hacer consumir con AJAX
 
-
 //Event Listeners
 $(document).ready(()=>{
   $('header').css({
@@ -84,6 +83,7 @@ $(document).ready(()=>{
   $(".name-form-container").hide();
   $(".name-form-container").fadeIn(1000);
 
+
 });
 
 $('#btn-go').click((e)=>{   
@@ -92,7 +92,7 @@ $('#btn-go').click((e)=>{
 
   	if(playerName.value == ''){
     	playerName.classList.add('alert-form');
-    	console.log('Faltan datos');
+
   	}
   	else{
     	$("#player-name").append(`<h3>${playerName.value}</h3>`);
@@ -105,14 +105,14 @@ $('#btn-go').click((e)=>{
 });
 
 
-allButton.addEventListener('click', () =>{
+allButton.addEventListener('click', () =>{ //Vemos el listado completo de Avatares
   let tBody = document.querySelector('tbody');
   avatarTable.removeChild(tBody);
   avatarListSet();
 });
 
 
-filterLeft.addEventListener('click', ()=>{
+filterLeft.addEventListener('click', ()=>{ //Filtramos Avatares por perfil Izquierdo o "Zurdos"
   let tBody = document.querySelector('tbody');
   tBody.innerHTML ='';
   let onlyLeft = avatarList.filter(avatar => avatar.perfil.includes("IZQ"));
@@ -122,8 +122,7 @@ filterLeft.addEventListener('click', ()=>{
     tD.innerHTML = avatar.nombre;
     tBody.appendChild(tRow);
     tRow.appendChild(tD);
-    console.log(avatar.nombre);
-
+    
     switch(avatar.nombre){
       case 'Lionel Messi':
         tD.setAttribute('class','izq');
@@ -166,7 +165,7 @@ filterLeft.addEventListener('click', ()=>{
 
 
 
-filterRight.addEventListener('click', ()=>{
+filterRight.addEventListener('click', ()=>{ //Filtramos Avatares por perfil Derecho
   let tBody = document.querySelector('tbody');
   tBody.innerHTML ='';
   let onlyRight = avatarList.filter(avatar => avatar.perfil.includes("DER"));
@@ -176,7 +175,6 @@ filterRight.addEventListener('click', ()=>{
     tD.innerHTML = avatar.nombre;
     tBody.appendChild(tRow);
     tRow.appendChild(tD);
-    console.log(avatar.nombre);
 
     switch(avatar.nombre){
 
@@ -226,28 +224,30 @@ goal.addEventListener('click',(e)=>{
   e.preventDefault();
   setDirection = true;
 
-  console.log(`valor de setDirection: ${setDirection}`);
-  console.log(`valor de e: ${e.target}`);
-
   getDirection = Math.floor(Math.random() * 10);
   if(getDirection<1){
     getDirection+=1;
   }
-  console.log(`valor de getDirection: ${getDirection}`);
+
+  let goalTdArray = Array.from(goal.querySelectorAll('td'));
+
+  for(let td of goalTdArray){
+    td.classList.remove('selected');
+  }
+  
+  e.target.classList.add('selected');
+
 });
 
 
-buttonShot.addEventListener('click', (e)=>{
+buttonShot.addEventListener('click', (e)=>{ //Botón para patear al arco
   e.preventDefault();
   if(setDirection == true){
-    console.log(`valor de setDirection: ${setDirection}`);
     if(getDirection >= 5){
       getDirection - Math.floor(Math.random() * 10)
-      console.log(getDirection);
-
       let popUpNotification = document.querySelector('#popup-notification');
       popUp.setAttribute('class','popup-animated');
-      popUpNotification.innerHTML = ` <div style="margin-top: -100px">
+      popUpNotification.innerHTML = ` <div style="margin-top: -150px">
                                         <span class="close-button">x</span>
                                         <p>GOOOL!!!</p>
                                         <div id="meme-box" class="rounded-circle"></div>
@@ -260,8 +260,8 @@ buttonShot.addEventListener('click', (e)=>{
               $('#meme-box').css({
                 "position":"absolute",
                 "left":"40%",
-                "width":"100px",
-                "height":"100px",
+                "width":"150px",
+                "height":"150px",
                 "background-image":`url('${misDatos.data.memes[random].url}')`,
                 "background-size":"cover",
                 "background-repeat":"no-repeat",
@@ -283,12 +283,11 @@ buttonShot.addEventListener('click', (e)=>{
 
       });
 
-      console.log(points);
     }
     else{
       let popUpNotification = document.querySelector('#popup-notification');
       popUp.setAttribute('class','popup-animated');
-      popUpNotification.innerHTML = ` <div style="margin-top: -100px">
+      popUpNotification.innerHTML = ` <div style="margin-top: -150px">
                                         <span class="close-button">x</span>
                                         <p>ATAJÓ EL ARQUERO!!</p>
                                         <div id="meme-box" class="rounded-circle"></div>
@@ -301,8 +300,8 @@ buttonShot.addEventListener('click', (e)=>{
               $('#meme-box').css({
                 "position":"absolute",
                 "left":"40%",
-                "width":"100px",
-                "height":"100px",
+                "width":"150px",
+                "height":"150px",
                 "background-image":`url('${misDatos.data.memes[random].url}')`,
                 "background-size":"cover",
                 "background-repeat":"no-repeat",
@@ -339,15 +338,16 @@ buttonShot.addEventListener('click', (e)=>{
     popUp.setAttribute('class','popup');
                                                               
     }); 
-
     setDirection = false;
-    console.log(`valor de setDirection: ${setDirection}`);
   }
   setDirection = false;
 
-
+  let goalTdArray = Array.from(goal.querySelectorAll('td'));
+  for(let td of goalTdArray){
+    td.classList.remove('selected');
+  }
+  
 });
-
 
 
 resetScoreButton.addEventListener('click',()=>{
@@ -368,8 +368,6 @@ function avatarListSet(){
 	  tD.innerText = avatar.nombre;
 	  tRow.appendChild(tD);
 	  tBody.appendChild(tRow);
-
-    console.log(avatar.nombre);
 
     switch(avatar.nombre){
       case 'Lionel Messi':
@@ -451,8 +449,7 @@ function chooseAvatar(e){
   for(let avatar of avatarList){
     let avatarData = avatar.nombre;
     if(avatarName == avatarData){
-      console.log(`${avatarName} - ${avatarData}`);
-
+      
       let avatarPlaceholder = avatar.nombreYClub()
       document.getElementById("avatar-name").innerHTML = avatarPlaceholder;
 
@@ -487,8 +484,7 @@ function chooseAvatar(e){
 }
 
 
-
-function showAvatar(e){  //Se corrigió esta función para automatizar la asignación de animaciones a cada elemento seleccionado
+function showAvatar(e){
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
 
@@ -505,7 +501,6 @@ function showAvatar(e){  //Se corrigió esta función para automatizar la asigna
 function resetAvatar(e){
   e.preventDefault();
   if(e.target.classList.contains('izq') || e.target.classList.contains('der')){
-    console.log('izq o der');
     avatarShow.setAttribute('class','avatar-show-static');
   }
 }
